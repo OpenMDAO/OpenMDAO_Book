@@ -1,3 +1,18 @@
+---
+jupytext:
+  cell_metadata_filter: -all
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.12
+    jupytext_version: 1.8.2
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 # How to Cite OpenMDAO
 
 There is a general OpenMDAO paper that includes a high-level overview of the framework,
@@ -31,7 +46,7 @@ OpenMDAO can tell you which citations are appropriate, accounting for what class
 If you copy the following script into a file called `paraboloid.py`,
 then you can get the citations from the command line using the :ref:`openmdao command-line script<om-command>`.
 
-```{code-cell} python3
+```{code-cell}
 import openmdao.api as om
 
 # build the model
@@ -54,7 +69,11 @@ prob.set_val('paraboloid.x', 3.0)
 prob.set_val('paraboloid.y', -4.0)
 
 # run the optimization
-prob.run_driver()
+prob.run_driver();
+```
+
+```{code-cell}
+:tags: [hide-input, hide-output]
 
 # minimum value
 assert_near_equal(prob.get_val('paraboloid.f'), -27.33333, 1e-6)
