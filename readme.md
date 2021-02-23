@@ -34,4 +34,7 @@ Building the actual docs is then done from the repo root using:
 
 ```
 jb build openmdao_book 
+cp openmdao_book/examples/n2.html openmdao_book/_build/html/examples/
 ```
+
+That last command is what we need to automate, since the n2's will have the same name by default.
