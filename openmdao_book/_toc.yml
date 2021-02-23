@@ -8,3 +8,7 @@
     - file: notebooks
     - file: test_openmdao_book
 - file: main
+  sections:
+    - file: other/citing
+- file: examples/paraboloid_tldr
+
