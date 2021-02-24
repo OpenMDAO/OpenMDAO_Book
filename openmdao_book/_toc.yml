@@ -16,7 +16,6 @@
 - part: Getting Started
   chapters:
   - file: getting_started/getting_started
-  - file: getting_started/getting_started2
 
 #- part: Basic User Guide
 #  chapters:
@@ -33,10 +32,11 @@
 #  - file: start/overview
 #  - file: start/build
 #
-#- part: Examples
-#  chapters:
-#  - file: start/overview
-#  - file: start/build
+- part: Examples
+  chapters:
+  - file: examples/examples
+    sections:
+    - file: examples/paraboloid
 #
 #- part: Theory Manual
 #  chapters:
