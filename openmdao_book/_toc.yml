@@ -1,14 +1,69 @@
 # Table of content
 # Learn more at https://jupyterbook.org/customize/toc.html
 #
-- file: intro
-- file: content
-  sections:
-    - file: markdown
-    - file: notebooks
-    - file: test_openmdao_book
+#- file: intro
+#- file: content
+#  sections:
+#    - file: markdown
+#    - file: notebooks
+#    - file: test_openmdao_book
+
 - file: main
-  sections:
-    - file: other/citing
-- file: examples/paraboloid_tldr
+#  sections:
+#    - file: other/citing
+#  numbered: true
+
+- part: Getting Started
+  chapters:
+  - file: getting_started/getting_started
+  - file: examples/examples
+    sections:
+    - file: examples/paraboloid
+
+#- part: Basic User Guide
+#  chapters:
+#  - file: start/overview
+#  - file: start/build
+#
+#- part: Advanced User Guide
+#  chapters:
+#  - file: start/overview
+#  - file: start/build
+#
+#- part: Features
+#  chapters:
+#  - file: start/overview
+#  - file: start/build
+#
+#
+#- part: Theory Manual
+#  chapters:
+#    - file: start/overview
+#    - file: start/build
+#
+#
+#  Getting Started
+#  Basic User Guide
+#  Advanced User Guide
+#  Features
+#  Examples
+#  Theory Manual
+#
+#- part: Get started
+#  chapters:
+#  - file: start/overview
+#  - file: start/build
+#
+#- part: Reference and test pages
+#  chapters:
+#  - file: test_pages/test
+#    sections:
+#      - file: test_pages/layout_elements
+#      - file: test_pages/equations
+#
+#
+#- file: main
+#  sections:
+#    - file: other/citing
+#- file: examples/paraboloid_tldr
 
