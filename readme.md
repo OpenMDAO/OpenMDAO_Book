@@ -86,3 +86,5 @@ It's not necessary to show this in the documentaiton, so remove it using the sam
 hiding metadata above.
 
 3. We will use a git pre commit hook to clean all output cells from the notebooks when committing them.  This will prevent git from picking up on meaningless diffs in the output cells and their metadata.
+
+4. Since 'n2.html' files and other build artifacts need to be manually copied over to the output `_build` directory to make the docs, each example notebook should be kept in its own directory.

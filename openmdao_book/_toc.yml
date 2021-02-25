@@ -18,7 +18,7 @@
   - file: getting_started/getting_started
   - file: examples/examples
     sections:
-    - file: examples/paraboloid
+    - file: examples/paraboloid/paraboloid
 
 #- part: Basic User Guide
 #  chapters:
