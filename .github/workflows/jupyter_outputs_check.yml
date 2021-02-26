@@ -2,7 +2,7 @@
 
 name: CI
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
@@ -25,10 +25,15 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      - name: Install jupyter and nbconvert
+        run: |
+          pip install jupyter
+          pip install nbconvert
+
       # Runs a single command using the runners shell
       - name: Clear Jupyter notebook output cells
         run: jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace
-        
+
       - name: Recommit with clear notebooks
         run: |
           git add .
