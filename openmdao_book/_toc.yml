@@ -18,7 +18,8 @@
   - file: getting_started/getting_started
   - file: examples/examples
     sections:
-    - file: examples/paraboloid
+    - file: examples/paraboloid/paraboloid
+    - file: examples/betz_limit/betz_limit
 
 #- part: Basic User Guide
 #  chapters:
