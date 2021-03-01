@@ -8,8 +8,9 @@ logo: OpenMDAO_Logo.png
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: cache
+  execute_notebooks: force
   stderr_output: show
+  allow_errors: false
 
 # Define the name of the latex output file for PDF builds
 latex:
