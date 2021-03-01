@@ -51,12 +51,9 @@ jobs:
             jupyter nbconvert  --clear-output --inplace "$p"
           done <ipy_list.txt
 
-      - name: Check local directory
+      - name: Remove list
         run: |
           rm ipy_list.txt
-
-      - name: Git Status
-        run: git status
 
       - name: Commit and push if changed
         run: |
