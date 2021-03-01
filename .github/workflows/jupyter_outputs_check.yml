@@ -1,10 +1,11 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Jupyter Notebook Cleanup
 
 # Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
+  # Remove push when finally merging
   push:
     branches: [ main ]
   pull_request:
@@ -23,29 +24,45 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
 
-      steps:
-        - uses: actions/checkout@v2
-        - uses: actions/setup-python@v2
-          with:
-            python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+      - name:
+        uses: actions/checkout@v2
+        with:
+          ref: '${{ github.head_ref }}'
 
-      - name: Install jupyter and nbconvert
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install Jupyter and nbconvert
         run: |
           pip install jupyter
           pip install nbconvert
 
-      # Runs a single command using the runners shell
-      - name: Clear Jupyter notebook output cells
-        run: jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace
-
-      - name: Recommit with clear notebooks
+      - name: Make list of Jupyter notebooks in repo
         run: |
-          git add .
+          find . -name ipynb_checkpoints -prune -o -iname \*ipynb >> ipy_list.txt
+
+      - name: Clear the output of notebooks
+        run: |
+          while read p;
+          do
+            jupyter nbconvert  --clear-output --inplace "$p"
+          done <ipy_list.txt
+
+      - name: Check local directory
+        run: |
+          rm ipy_list.txt
+
+      - name: Git Status
+        run: git status
+
+      - name: Commit and push if changed
+        run: |
           git config --global user.email "github-action@github.com"
           git config --global user.name "GitHub Action"
-          git commit -m "Recommited with clean Notebooks" -a || echo "No changes to commit"
+          git add -A
+          git commit -m "Cleaned Notebooks" -a || echo "No changes to commit"
           git push
-
 
