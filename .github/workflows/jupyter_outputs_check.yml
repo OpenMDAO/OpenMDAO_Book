@@ -59,7 +59,7 @@ jobs:
         run: |
           git config --global user.email "github-action@github.com"
           git config --global user.name "GitHub Action"
-          git add -A
+          git add -u
           git commit -m "Cleaned Notebooks" -a || echo "No changes to commit"
           git push
 
