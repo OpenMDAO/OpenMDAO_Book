@@ -21,10 +21,7 @@ for root, dirs, files in os.walk(top, topdown=True):
 
 class LintJupyterOutputsTestCase(unittest.TestCase):
     """
-    Check that for each class, all attributes are documented in the class docstring.
-
-    Parses the source code for the __init__ methods, searching for attribute declarations in every self.* =
-    and ensure these attributes are in the 'Attributes' class docstring.
+    Check Jupyter Notebooks for outputs through execution count and recommend to remove output.
     """
 
     def test_output(self):
@@ -59,6 +56,8 @@ class LintJupyterOutputsTestCase(unittest.TestCase):
                 msg += '    {0}\n'.format(failures[key])
             msg += 'Found {0} issues in docstrings'.format(count)
             self.fail(msg)
+            self.fail("Clear output with 'upyter nbconvert  --clear-output --inplace "
+                      "path_to_notebook.ipynb'")
 
 
 if __name__ == '__main__':
