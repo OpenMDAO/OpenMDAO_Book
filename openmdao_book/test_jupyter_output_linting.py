@@ -61,6 +61,10 @@ class LintJupyterOutputsTestCase(unittest.TestCase):
                       "path_to_notebook.ipynb'")
 
     def test_header(self):
+        """
+        Check Jupyter Notebooks for code cell installing openmdao.
+        """
+
         new_failures = []
         failures = {}
         skip_notebooks = ['notebooks.ipynb']
