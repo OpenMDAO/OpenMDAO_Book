@@ -71,7 +71,7 @@ class LintJupyterOutputsTestCase(unittest.TestCase):
         header = ["try:",
                   "import openmdao.api as om",
                   "except ImportError:",
-                  "!pip install openmdao[notebooks]"]
+                  "python -m pip install openmdao[notebooks]"]
 
         for file in _get_files():
             header_found = False
