@@ -28,19 +28,16 @@ jobs:
 
       - name: Install dependencies
         run: |
+          pip install matplotlib
           pip install jupyter-book
           pip install nbconvert
           pip install testflo
 
       - name: Run Testflo
         run: |
-          pwd
-          ls -la
           testflo .
 
       - name: Build docs
         run: |
-          pwd
-          ls -la
           python build_jupyter_book.py
 
