@@ -68,8 +68,7 @@ class TestNotebooks(unittest.TestCase):
                         print('Running', nb_rel_path, ':', i + 1, '/', num_notebooks)
                         ep.preprocess(nb, {'metadata': {'path': RUN_PATH}})
                     except CellExecutionError as e:
-                        print(e.traceback)
-                        self.fail('Failed due to exception.')
+                        self.fail(f'{nb_rel_path} failed due to exception.\n{e.traceback}')
                     except TimeoutError:
                         msg = f'Timeout executing the notebook {n}.\n'
                         self.fail(msg)

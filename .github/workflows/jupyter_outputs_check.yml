@@ -1,0 +1,43 @@
+# Run linting check on Jupyter notebooks
+
+name: Jupyter Notebook Linting
+
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  # Remove push when finally merging
+  push:
+    branches: [ main ]
+  # pull_request:
+  #   branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  # This build is called Testflo
+  testflo:
+    # Run on Ubuntu
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install dependencies
+        run: |
+          pip install jupyter-book
+          pip install nbconvert
+          pip install testflo
+
+      - name: Run Testflo
+        run: |
+          testflo .
+
+      - name: Build docs
+        run: |
+          python build_jupyter_book.py
+
