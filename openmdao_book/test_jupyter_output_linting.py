@@ -68,18 +68,22 @@ class LintJupyterOutputsTestCase(unittest.TestCase):
         new_failures = []
         failures = {}
         skip_notebooks = ['notebooks.ipynb']
-        header_content = ["try:", "import openmdao.api as om", "except", "!pip install openmdao"]
+        header = ["try:",
+                  "import openmdao.api as om",
+                  "except ImportError:",
+                  "!pip install openmdao[notebooks]"]
 
         for file in _get_files():
             header_found = False
+            print(file)
 
             with open(file) as f:
                 if not any(x in file for x in skip_notebooks):
                     json_data = json.load(f)
                     for i in json_data['cells']:
                         if 'source' in i and i['source'] is not None:
-                            i['source'] = [line.rstrip() for line in i['source']]
-                            if any(x in i['source'] for x in header_content):
+                            i['source'] = [line.strip() for line in i['source']]
+                            if i['source'] == header:
                                 header_found = True
 
                     if not header_found:
