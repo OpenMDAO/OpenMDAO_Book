@@ -36,9 +36,12 @@ jobs:
       - name: Run Testflo
         run: |
           pwd
+          ls -la
           testflo .
 
       - name: Build docs
         run: |
+          pwd
+          ls -la
           python build_jupyter_book.py
 
