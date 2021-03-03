@@ -35,6 +35,7 @@ jobs:
 
       - name: Run Testflo
         run: |
+          pwd
           testflo .
 
       - name: Build docs
