@@ -1,65 +1,39 @@
-# This is a basic workflow to help you get started with Actions
+# Run linting check on Jupyter notebooks
 
-name: Jupyter Notebook Cleanup
+name: Jupyter Notebook Linting
 
-# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   # Remove push when finally merging
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  # pull_request:
+  #   branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  # This build is called Testflo
+  testflo:
+    # Run on Ubuntu
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-
-      - name:
-        uses: actions/checkout@v2
-        with:
-          ref: '${{ github.head_ref }}'
 
       - name: Set up Python 3.8
         uses: actions/setup-python@v2
         with:
           python-version: 3.8
 
-      - name: Install Jupyter and nbconvert
+      - name: Install dependencies
         run: |
           pip install jupyter
           pip install nbconvert
+          pip install testflo
 
-      - name: Make list of Jupyter notebooks in repo
+      - name: Run Testflo
         run: |
-          find . -name ipynb_checkpoints -prune -o -iname \*ipynb >> ipy_list.txt
-
-      - name: Clear the output of notebooks
-        run: |
-          while read p;
-          do
-            jupyter nbconvert  --clear-output --inplace "$p"
-          done <ipy_list.txt
-
-      - name: Remove list
-        run: |
-          rm ipy_list.txt
-
-      - name: Commit and push if changed
-        run: |
-          git config --global user.email "github-action@github.com"
-          git config --global user.name "GitHub Action"
-          git add -u
-          git commit -m "Cleaned Notebooks" -a || echo "No changes to commit"
-          git push
+          testflo .
 
