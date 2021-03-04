@@ -20,12 +20,15 @@
     sections:
     - file: examples/paraboloid/paraboloid
     - file: examples/betz_limit/betz_limit
+  - file: basic_user_guide/basic_user_guide.md
+    sections:
+    - file: basic_user_guide/multidisciplinary_optimization/sellar
 
-#- part: Basic User Guide
-#  chapters:
-#  - file: start/overview
+# - part: Basic User Guide
+#   chapters:
+#   - file: basic_user_guide/basic_example.ipynb
 #  - file: start/build
-#
+
 #- part: Advanced User Guide
 #  chapters:
 #  - file: start/overview
