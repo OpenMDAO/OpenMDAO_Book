@@ -67,6 +67,10 @@ jobs:
           pip install jupyter-book
           pip install nbconvert
           pip install testflo
+          # Test the conda installs
+          conda env list
+          python -c "import mpi4py"
+          python -c "import petsc4py"
 
       - name: 'Build OpenMDAO Book'
         run: |
