@@ -33,7 +33,7 @@ jobs:
       - name: 'Install dependencies'
         run: |
           pip install matplotlib
-          pip install jupyter-book
+          pip install jupyter
           pip install nbconvert
           pip install testflo
 
@@ -59,28 +59,12 @@ jobs:
 #          miniconda-version: "latest"
 #          activate-environment: build_docs
 
-      - name: 'Download OpenMPI'
-        run: wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.2.tar.gz
-      - name: 'Extract OpenMPI'
-        run: tar -xvf ./openmpi-4.0.2.tar.gz
-      - name: 'Configure OpenMPI'
-        run: ./openmpi-4.0.2/configure --prefix="/home/${USER}/.openmpi"
-      - name: 'Install OpenMPI'
-        run: |
-          make -j
-          sudo make install
-
       - name: 'Install dependencies'
         run: |
-          pip install mpi4py
-          pip install petsc petsc4py
           pip install matplotlib
           pip install jupyter-book
           pip install nbconvert
           pip install testflo
-          # Test the installs
-          python -c "import mpi4py"
-          python -c "import petsc4py"
 
       - name: 'Build OpenMDAO Book'
         run: |
@@ -91,6 +75,6 @@ jobs:
       - name: 'Upload Book'
         uses: actions/upload-artifact@v2
         with:
-          name: openmdao_book_zip
+          name: openmdao_book
           path: openmdao_book/_build/html/openmdao_book.zip
           retention-days: 2
