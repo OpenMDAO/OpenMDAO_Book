@@ -46,7 +46,7 @@ jobs:
       - name: 'Build docs'
         run: |
           python build_jupyter_book.py
-          zip -r ./openmdao_book.zip openmdao_book/_build
+          zip -r ./openmdao_book.zip openmdao_book/_build/html
 
       - name: 'Upload docs'
         uses: actions/upload-artifact@v2
