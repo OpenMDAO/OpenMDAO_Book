@@ -72,7 +72,7 @@ jobs:
         run: |
           python build_jupyter_book.py
           cd openmdao_book/_build/html
-          zip -r .
+          zip -r openmdao_book.zip .
 
       - name: 'Upload Book'
         uses: actions/upload-artifact@v2
