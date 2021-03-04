@@ -56,10 +56,14 @@ class TestNotebooks(unittest.TestCase):
 
         for i, n in enumerate(notebooks):
             nb_rel_path = pathlib.PurePath(n).relative_to(book_dir)
+            print(nb_rel_path)
             with self.subTest(nb_rel_path):
                 with open(n) as f:
                     try:
                         nb = nbformat.read(f, as_version=4)
+                    except json.read.NotJSONError:
+                        msg = f'Notebook is not valid JSON: {nb_rel_path}.\n'
+                        self.fail(msg)
                     except json.decoder.JSONDecodeError:
                         msg = f'Unable to parse notebook {nb_rel_path}.\n'
                         self.fail(msg)
