@@ -1,6 +1,6 @@
 # Run linting check on Jupyter notebooks
 
-name: Jupyter Notebook Linting
+name: OpenMDAO Book Workflow
 
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
@@ -14,8 +14,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  # This build is called doctest
-  doctest:
+  # This job is called test_docs
+  test_docs:
     # Run on Ubuntu
     runs-on: ubuntu-latest
 
@@ -32,8 +32,6 @@ jobs:
 
       - name: 'Install dependencies'
         run: |
-          conda install -c anaconda mpi4py --yes
-          conda install -c conda-forge petsc=3 petsc4py --yes
           pip install matplotlib
           pip install jupyter-book
           pip install nbconvert
@@ -43,12 +41,23 @@ jobs:
         run: |
           testflo .
 
-      - name: 'Build docs'
+  # This job is called build_docs
+  build_docs:
+    - needs: [ test_docs ]
+    - steps:
+
+      # Only install these larger dependencies if we make it to the doc building phase.
+      - name: 'Install dependencies'
+        run: |
+          conda install -c anaconda mpi4py --yes
+          conda install -c conda-forge petsc=3 petsc4py --yes
+
+      - name: 'Build OpenMDAO Book'
         run: |
           python build_jupyter_book.py
           zip -r ./openmdao_book.zip openmdao_book/_build/html
 
-      - name: 'Upload docs'
+      - name: 'Upload Book'
         uses: actions/upload-artifact@v2
         with:
           name: openmdao_book_zip
