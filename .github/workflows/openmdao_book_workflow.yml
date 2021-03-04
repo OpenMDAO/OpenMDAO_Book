@@ -43,8 +43,8 @@ jobs:
 
   # This job is called build_docs
   build_docs:
-    - needs: [ test_docs ]
-    - steps:
+    needs: [ test_docs ]
+    steps:
 
       # Only install these larger dependencies if we make it to the doc building phase.
       - name: 'Install dependencies'
