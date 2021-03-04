@@ -71,13 +71,12 @@ jobs:
       - name: 'Build OpenMDAO Book'
         run: |
           python build_jupyter_book.py
-          cd openmdao_book/_build/
-          zip -r openmdao_book.zip ./html
-          cd ../..
+          cd openmdao_book/_build/html
+          zip -r ./openmdao_book.zip .
 
       - name: 'Upload Book'
         uses: actions/upload-artifact@v2
         with:
           name: openmdao_book_zip
-          path: openmdao_book.zip
+          path: openmdao_book/_build/html/openmdao_book.zip
           retention-days: 2
