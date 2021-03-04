@@ -57,7 +57,7 @@ class LintJupyterOutputsTestCase(unittest.TestCase):
                 msg += '    {0}\n'.format(failures[key])
             msg += 'Found {0} issues in docstrings'.format(count)
             self.fail(msg)
-            self.fail("Clear output with 'upyter nbconvert  --clear-output --inplace "
+            self.fail("Clear output with 'jupyter nbconvert  --clear-output --inplace "
                       "path_to_notebook.ipynb'")
 
     def test_header(self):
@@ -68,40 +68,27 @@ class LintJupyterOutputsTestCase(unittest.TestCase):
         new_failures = []
         failures = {}
         skip_notebooks = ['notebooks.ipynb']
-        header = ["try:",
-                  "import openmdao.api as om",
-                  "except ImportError:",
-                  "python -m pip install openmdao[notebooks]"]
+        header = ["try:\n",
+                  "    import openmdao.api as om\n",
+                  "except ImportError:\n",
+                  "    !python -m pip install openmdao[notebooks]\n"]
 
         for file in _get_files():
-            header_found = False
-            print(file)
+            with self.subTest(file):
+                print(file)
 
-            with open(file) as f:
-                if not any(x in file for x in skip_notebooks):
-                    json_data = json.load(f)
-                    for i in json_data['cells']:
-                        if 'source' in i and i['source'] is not None:
-                            i['source'] = [line.strip() for line in i['source']]
-                            if i['source'] == header:
-                                header_found = True
+                with open(file) as f:
+                    if not any(x in file for x in skip_notebooks):
+                        json_data = json.load(f)
+                        for i in json_data['cells']:
+                            if 'source' in i and i['source'] is not None:
+                                i['source'] = [line for line in i['source']]
+                                if i['source'] == header:
+                                    break
+                        else:
+                            self.fail(f"pip install header not found in {file}")
 
-                    if not header_found:
-                        new_failures.append("Pip install header not found in {0}".format(file))
 
-        for i, failure in enumerate(new_failures):
-            failures[i] = failure
-
-        if failures:
-            msg = '\n'
-            count = 0
-            for key in failures:
-                count += 1
-                msg += '    {0}\n'.format(failures[key])
-            msg += 'Found {0} issues in docstrings'.format(count)
-            self.fail(msg)
-            self.fail("Clear output with 'upyter nbconvert  --clear-output --inplace "
-                      "path_to_notebook.ipynb'")
 
 if __name__ == '__main__':
     unittest.main()
