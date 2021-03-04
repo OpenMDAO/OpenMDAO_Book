@@ -16,10 +16,14 @@
 - part: Getting Started
   chapters:
   - file: getting_started/getting_started
+
+- part: Examples
+  chapters:
   - file: examples/examples
     sections:
     - file: examples/paraboloid/paraboloid
     - file: examples/betz_limit/betz_limit
+    - file: examples/keplers_equation/keplers_equation
 
 #- part: Basic User Guide
 #  chapters:
