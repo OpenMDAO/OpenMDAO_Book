@@ -14,8 +14,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  # This build is called Testflo
-  testflo:
+  # This build is called doctest
+  doctest:
     # Run on Ubuntu
     runs-on: ubuntu-latest
 
@@ -26,18 +26,25 @@ jobs:
         with:
           python-version: 3.8
 
-      - name: Install dependencies
+      - name: 'Install dependencies'
         run: |
           pip install matplotlib
           pip install jupyter-book
           pip install nbconvert
           pip install testflo
 
-      - name: Run Testflo
+      - name: 'Run testflo'
         run: |
           testflo .
 
-      - name: Build docs
+      - name: 'Build docs'
         run: |
           python build_jupyter_book.py
+          zip -r ./openmdao_book.zip openmdao_book/_build
 
+      - name: 'Upload docs'
+        uses: actions/upload-artifact@v2
+        with:
+          name: openmdao_book_zip
+          path: openmdao_book.zip
+          retention-days: 2
