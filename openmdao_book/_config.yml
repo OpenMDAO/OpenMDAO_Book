@@ -4,6 +4,7 @@
 title: OpenMDAO
 author: The OpenMDAO Development Team
 logo: OpenMDAO_Logo.png
+exclude_patterns : [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints", "template.ipynb"]
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
