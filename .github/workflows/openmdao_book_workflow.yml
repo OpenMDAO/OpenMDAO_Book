@@ -71,8 +71,9 @@ jobs:
       - name: 'Build OpenMDAO Book'
         run: |
           python build_jupyter_book.py
-          cd openmdao_book/_build/html
-          zip -r openmdao_book.zip .
+          cd openmdao_book/_build/
+          zip -r openmdao_book.zip ./html
+          cd ../..
 
       - name: 'Upload Book'
         uses: actions/upload-artifact@v2
