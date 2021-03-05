@@ -55,10 +55,11 @@ class LintJupyterOutputsTestCase(unittest.TestCase):
         Check Jupyter Notebooks for code cell installing openmdao.
         """
         skip_notebooks = ['notebooks.ipynb']
-        header = ["try:\n",
-                  "    import openmdao.api as om\n",
-                  "except ImportError:\n",
-                  "    !python -m pip install openmdao[notebooks]\n"]
+        header = ["try:",
+                  "import openmdao.api as om",
+                  "except ImportError:",
+                  "!python -m pip install openmdao[notebooks]",
+                  "import openmdao.api as om"]
 
         for file in _get_files():
             with self.subTest(file):
@@ -68,7 +69,7 @@ class LintJupyterOutputsTestCase(unittest.TestCase):
                         json_data = json.load(f)
                         for i in json_data['cells']:
                             if 'source' in i and i['source'] is not None:
-                                i['source'] = [line for line in i['source']]
+                                i['source'] = [line.strip() for line in i['source']]
                                 if i['source'] == header:
                                     break
                         else:
