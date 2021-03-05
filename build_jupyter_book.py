@@ -6,10 +6,14 @@ import fnmatch
 import shutil
 
 
-def copy_build_artifacts(book_dir='openmdao_book'):
+_this_file = pathlib.Path(__file__).resolve()
+REPO_ROOT = _this_file.parent
+BOOK_DIR = pathlib.Path(REPO_ROOT, 'openmdao_book')
+
+
+def copy_build_artifacts(book_dir=BOOK_DIR):
     """
     Copy build artifacts (html files, images, etc) to the output _build directory.
-
     Parameters
     ----------
     book_dir : str
@@ -29,25 +33,25 @@ def copy_build_artifacts(book_dir='openmdao_book'):
         for f in files_to_copy:
             src = pathlib.PurePath(dirpath, f)
             dst = pathlib.PurePath(target_path, f)
+            os.makedirs(os.path.dirname(dst), exist_ok=True)
             shutil.copyfile(src, dst)
 
 
-def build_book(book_dir='openmdao_book', clean=True):
+def build_book(book_dir=BOOK_DIR, clean=True):
     """
     Clean (if requested), build, and copy over necessary files for the JupyterBook to be created.
     Parameters
     ----------
     book_dir
     clean
-
-    Returns
-    -------
-
     """
+    save_cwd = os.getcwd()
+    os.chdir(REPO_ROOT)
     if clean:
         os.system(f'jupyter-book clean {book_dir}')
     os.system(f'jupyter-book build {book_dir}')
     copy_build_artifacts(book_dir)
+    os.chdir(save_cwd)
 
 
 if __name__ == '__main__':
