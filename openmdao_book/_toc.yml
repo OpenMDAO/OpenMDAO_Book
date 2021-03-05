@@ -16,10 +16,15 @@
 - part: Getting Started
   chapters:
   - file: getting_started/getting_started
+
+- part: Examples
+  chapters:
   - file: examples/examples
     sections:
     - file: examples/paraboloid/paraboloid
     - file: examples/betz_limit/betz_limit
+    - file: examples/keplers_equation/keplers_equation
+
   - file: basic_user_guide/basic_user_guide.md
     sections:
     - file: basic_user_guide/multidisciplinary_optimization/sellar
@@ -27,7 +32,6 @@
     - file: basic_user_guide/multidisciplinary_optimization/sellar_opt
     - file: basic_user_guide/command_line/check_setup
     - file: basic_user_guide/command_line/make_n2
-
 
 #- part: Advanced User Guide
 #  chapters:
