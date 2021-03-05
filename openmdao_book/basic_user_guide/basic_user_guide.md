@@ -11,5 +11,5 @@ These tutorials serve to give an initial introduction to the OpenMDAO framework.
 
 ## Using the OpenMDAO Command Line Utility
 ---
-- [Sanity Checking Your Model](command_line/sanity_check.ipynb)
-- [Visualizing The Structure of Your Model](command_line/n2.ipynb)
+- [Sanity Checking Your Model](command_line/check_setup.ipynb)
+- [Visualizing The Structure of Your Model](command_line/make_n2.ipynb)

@@ -25,8 +25,8 @@
     - file: basic_user_guide/multidisciplinary_optimization/sellar
     - file: basic_user_guide/multidisciplinary_optimization/linking_vars
     - file: basic_user_guide/multidisciplinary_optimization/sellar_opt
-    - file: basic_user_guide/command_line/sanity_check
-    - file: basic_user_guide/command_line/n2
+    - file: basic_user_guide/command_line/check_setup
+    - file: basic_user_guide/command_line/make_n2
 
 
 #- part: Advanced User Guide
