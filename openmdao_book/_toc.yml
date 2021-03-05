@@ -26,10 +26,6 @@
     - file: basic_user_guide/multidisciplinary_optimization/linking_vars
     - file: basic_user_guide/multidisciplinary_optimization/sellar_opt
 
-# - part: Basic User Guide
-#   chapters:
-#   - file: basic_user_guide/basic_example.ipynb
-#  - file: start/build
 
 #- part: Advanced User Guide
 #  chapters:
