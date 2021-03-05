@@ -62,7 +62,6 @@ class LintJupyterOutputsTestCase(unittest.TestCase):
 
         for file in _get_files():
             with self.subTest(file):
-                print(file)
 
                 with open(file) as f:
                     if not any(x in file for x in skip_notebooks):
@@ -73,7 +72,14 @@ class LintJupyterOutputsTestCase(unittest.TestCase):
                                 if i['source'] == header:
                                     break
                         else:
-                            self.fail(f"pip install header not found in {file}")
+                            header_text = ''.join(header)
+                            msg = f'required header not found in notebook {file}\n' \
+                                  f'All notebooks should contain the following block before ' \
+                                  f'any other code blocks:\n' \
+                                  f'-----------------------------------------\n' \
+                                  f'{header_text}\n' \
+                                  f'-----------------------------------------\n'
+                            self.fail(msg)
 
 
 if __name__ == '__main__':
