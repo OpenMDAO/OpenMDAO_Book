@@ -48,7 +48,8 @@ That last command is what we need to automate, since the n2's will have the same
 try:
     import openmdao.api as om
 except ImportError:
-    !pip install openmdao[notebooks]
+    !python -m pip install openmdao[notebooks]
+    import openmdao.api as om
 ```
 
 This cell should be tagged with the following metadata.  The "remove-input" and "remove-output" tags prevent it from showing up in the documentation, and the "hide_input" portion collapses the input cell.
