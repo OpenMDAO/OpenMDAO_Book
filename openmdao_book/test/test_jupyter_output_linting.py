@@ -40,15 +40,15 @@ class LintJupyterOutputsTestCase(unittest.TestCase):
         book_dir = this_file.parent.parent
 
         for file in _get_files():
-            rel_path = pathlib.PurePath(file).relative_to(book_dir)
-            with self.subTest(rel_path):
+            print(file)
+            with self.subTest(file):
                 with open(file) as f:
                     json_data = json.load(f)
                     for i in json_data['cells']:
                         if 'execution_count' in i and i['execution_count'] is not None:
                             msg = "Clear output with 'jupyter nbconvert  --clear-output " \
                                   f"--inplace path_to_notebook.ipynb'"
-                            self.fail(f"Output found in {rel_path}.\n{msg}")
+                            self.fail(f"Output found in {file}.\n{msg}")
 
     def test_header(self):
         """
@@ -74,7 +74,6 @@ class LintJupyterOutputsTestCase(unittest.TestCase):
                                     break
                         else:
                             self.fail(f"pip install header not found in {file}")
-
 
 
 if __name__ == '__main__':
