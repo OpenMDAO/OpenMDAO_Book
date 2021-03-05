@@ -20,12 +20,13 @@
     sections:
     - file: examples/paraboloid/paraboloid
     - file: examples/betz_limit/betz_limit
+  - file: basic_user_guide/basic_user_guide.md
+    sections:
+    - file: basic_user_guide/multidisciplinary_optimization/sellar
+    - file: basic_user_guide/multidisciplinary_optimization/linking_vars
+    - file: basic_user_guide/multidisciplinary_optimization/sellar_opt
 
-#- part: Basic User Guide
-#  chapters:
-#  - file: start/overview
-#  - file: start/build
-#
+
 #- part: Advanced User Guide
 #  chapters:
 #  - file: start/overview
