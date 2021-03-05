@@ -1,5 +1,6 @@
 import unittest
 import os.path
+import pathlib
 import json
 
 exclude = [
@@ -35,38 +36,24 @@ class LintJupyterOutputsTestCase(unittest.TestCase):
     """
 
     def test_output(self):
-        new_failures = []
-        failures = {}
+        this_file = pathlib.PurePath(__file__)
+        book_dir = this_file.parent.parent
 
         for file in _get_files():
-            with open(file) as f:
-                json_data = json.load(f)
-                for i in json_data['cells']:
-                    if 'execution_count' in i and i['execution_count'] is not None:
-                        new_failures.append("Output found in {0}.".format(file))
-                        break
-
-        for i, failure in enumerate(new_failures):
-            failures[i] = failure
-
-        if failures:
-            msg = '\n'
-            count = 0
-            for key in failures:
-                count += 1
-                msg += '    {0}\n'.format(failures[key])
-            msg += 'Found {0} issues in docstrings'.format(count)
-            self.fail(msg)
-            self.fail("Clear output with 'jupyter nbconvert  --clear-output --inplace "
-                      "path_to_notebook.ipynb'")
+            rel_path = pathlib.PurePath(file).relative_to(book_dir)
+            with self.subTest(rel_path):
+                with open(file) as f:
+                    json_data = json.load(f)
+                    for i in json_data['cells']:
+                        if 'execution_count' in i and i['execution_count'] is not None:
+                            msg = "Clear output with 'jupyter nbconvert  --clear-output " \
+                                  f"--inplace path_to_notebook.ipynb'"
+                            self.fail(f"Output found in {rel_path}.\n{msg}")
 
     def test_header(self):
         """
         Check Jupyter Notebooks for code cell installing openmdao.
         """
-
-        new_failures = []
-        failures = {}
         skip_notebooks = ['notebooks.ipynb']
         header = ["try:\n",
                   "    import openmdao.api as om\n",
