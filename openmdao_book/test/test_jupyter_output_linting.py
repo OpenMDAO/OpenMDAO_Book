@@ -1,5 +1,6 @@
 import unittest
 import os.path
+import pathlib
 import json
 
 exclude = [
@@ -35,38 +36,24 @@ class LintJupyterOutputsTestCase(unittest.TestCase):
     """
 
     def test_output(self):
-        new_failures = []
-        failures = {}
+        this_file = pathlib.PurePath(__file__)
+        book_dir = this_file.parent.parent
 
         for file in _get_files():
-            with open(file) as f:
-                json_data = json.load(f)
-                for i in json_data['cells']:
-                    if 'execution_count' in i and i['execution_count'] is not None:
-                        new_failures.append("Output found in {0}.".format(file))
-                        break
-
-        for i, failure in enumerate(new_failures):
-            failures[i] = failure
-
-        if failures:
-            msg = '\n'
-            count = 0
-            for key in failures:
-                count += 1
-                msg += '    {0}\n'.format(failures[key])
-            msg += 'Found {0} issues in docstrings'.format(count)
-            self.fail(msg)
-            self.fail("Clear output with 'jupyter nbconvert  --clear-output --inplace "
-                      "path_to_notebook.ipynb'")
+            print(file)
+            with self.subTest(file):
+                with open(file) as f:
+                    json_data = json.load(f)
+                    for i in json_data['cells']:
+                        if 'execution_count' in i and i['execution_count'] is not None:
+                            msg = "Clear output with 'jupyter nbconvert  --clear-output " \
+                                  f"--inplace path_to_notebook.ipynb'"
+                            self.fail(f"Output found in {file}.\n{msg}")
 
     def test_header(self):
         """
         Check Jupyter Notebooks for code cell installing openmdao.
         """
-
-        new_failures = []
-        failures = {}
         skip_notebooks = ['notebooks.ipynb']
         header = ["try:",
                   "import openmdao.api as om",
@@ -76,7 +63,6 @@ class LintJupyterOutputsTestCase(unittest.TestCase):
 
         for file in _get_files():
             with self.subTest(file):
-                print(file)
 
                 with open(file) as f:
                     if not any(x in file for x in skip_notebooks):
@@ -87,8 +73,14 @@ class LintJupyterOutputsTestCase(unittest.TestCase):
                                 if i['source'] == header:
                                     break
                         else:
-                            self.fail(f"pip install header not found in {file}")
-
+                            header_text = ''.join(header)
+                            msg = f'required header not found in notebook {file}\n' \
+                                  f'All notebooks should contain the following block before ' \
+                                  f'any other code blocks:\n' \
+                                  f'-----------------------------------------\n' \
+                                  f'{header_text}\n' \
+                                  f'-----------------------------------------\n'
+                            self.fail(msg)
 
 
 if __name__ == '__main__':
