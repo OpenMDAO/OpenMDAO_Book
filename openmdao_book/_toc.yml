@@ -32,6 +32,7 @@
     - file: basic_user_guide/multidisciplinary_optimization/sellar_opt
     - file: basic_user_guide/command_line/check_setup
     - file: basic_user_guide/command_line/make_n2
+    - file: basic_user_guide/reading_recording/basic_recording_example
 
 #- part: Advanced User Guide
 #  chapters:
