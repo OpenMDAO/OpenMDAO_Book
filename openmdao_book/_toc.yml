@@ -25,6 +25,8 @@
     - file: examples/betz_limit/betz_limit
     - file: examples/keplers_equation/keplers_equation
 
+- part: Basic User Guide
+  chapters:
   - file: basic_user_guide/basic_user_guide.md
     sections:
     - file: basic_user_guide/multidisciplinary_optimization/sellar
