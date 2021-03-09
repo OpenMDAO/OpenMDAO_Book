@@ -8,3 +8,8 @@ These tutorials serve to give an initial introduction to the OpenMDAO framework.
 - [Sellar - A Two-Discipline Problem with a Nonlinear Solver](multidisciplinary_optimization/sellar.ipynb)
 - [Linking Variables with Promotion vs. Connection](multidisciplinary_optimization/linking_vars.ipynb)
 - [Optimizing the Sellar Problem](multidisciplinary_optimization/sellar_opt.ipynb)
+
+## Using the OpenMDAO Command Line Utility
+---
+- [Sanity Checking Your Model](command_line/check_setup.ipynb)
+- [Visualizing The Structure of Your Model](command_line/make_n2.ipynb)
