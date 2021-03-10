@@ -6,7 +6,7 @@ These tutorials cover more advanced topics. This guide assumes that you have rea
 ## Models with Implicit Components
 ---
 - [Building Models with Solvers and Implicit Components](models_implicit_components/models_implicit_components/models_with_solvers_implicit.ipynb)
-- [Using BalanceComp to Create Implicit Relationships in Groups](blank.txt)
+- [Using BalanceComp to Create Implicit Relationships in Groups](models_implicit_components/models_implicit_components/implicit_with_balancecomp.ipynb)
 
 ## Working with Analytic Derivatives
 ---

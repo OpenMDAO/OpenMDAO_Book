@@ -41,6 +41,7 @@
   - file: advanced_user_guide/advanced_user_guide
     sections:
     - file: advanced_user_guide/models_implicit_components/models_with_solvers_implicit
+    - file: advanced_user_guide/models_implicit_components/implicit_with_balancecomp
 
 #- part: Advanced User Guide
 #  chapters:
