@@ -12,7 +12,7 @@ These tutorials cover more advanced topics. This guide assumes that you have rea
 ---
 - [Defining Partial Derivatives on Explicit Components](models_implicit_components/analytic_derivatives/partial_derivs_explicit.ipynb)
 - [Defining Partial Derivatives on Implicit Components](models_implicit_components/analytic_derivatives/partial_derivs_implicit.ipynb)
-- [Computing Total Derivatives of Coupled Models](blank.txt)
+- [Computing Total Derivatives of Coupled Models](models_implicit_components/analytic_derivatives/derivs_of_coupled_systems.ipynb)
 
 ## Recoding and Reading Data
 ---
