@@ -61,3 +61,10 @@ venv.bak/
 
 # OSX
 .DS_Store
+<<<<<<< HEAD
+=======
+
+# OpenMDAO_book html
+openmdao_book/*/*/*.html
+*.html
+>>>>>>> 6c30848... partial_derivs_explict
