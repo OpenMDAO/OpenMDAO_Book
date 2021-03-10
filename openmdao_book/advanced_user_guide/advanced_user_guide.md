@@ -5,14 +5,14 @@ These tutorials cover more advanced topics. This guide assumes that you have rea
 
 ## Models with Implicit Components
 ---
-- [Building Models with Solvers and Implicit Components](models_implicit_components/models_implicit_components/models_with_solvers_implicit.ipynb)
-- [Using BalanceComp to Create Implicit Relationships in Groups](models_implicit_components/models_implicit_components/implicit_with_balancecomp.ipynb)
+- [Building Models with Solvers and Implicit Components](models_implicit_components/models_with_solvers_implicit.ipynb)
+- [Using BalanceComp to Create Implicit Relationships in Groups](models_implicit_components/implicit_with_balancecomp.ipynb)
 
 ## Working with Analytic Derivatives
 ---
-- [Defining Partial Derivatives on Explicit Components](models_implicit_components/analytic_derivatives/partial_derivs_explicit.ipynb)
-- [Defining Partial Derivatives on Implicit Components](models_implicit_components/analytic_derivatives/partial_derivs_implicit.ipynb)
-- [Computing Total Derivatives of Coupled Models](models_implicit_components/analytic_derivatives/derivs_of_coupled_systems.ipynb)
+- [Defining Partial Derivatives on Explicit Components](analytic_derivatives/partial_derivs_explicit.ipynb)
+- [Defining Partial Derivatives on Implicit Components](analytic_derivatives/partial_derivs_implicit.ipynb)
+- [Computing Total Derivatives of Coupled Models](analytic_derivatives/derivs_of_coupled_systems.ipynb)
 
 ## Recoding and Reading Data
 ---
