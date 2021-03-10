@@ -11,7 +11,7 @@ These tutorials cover more advanced topics. This guide assumes that you have rea
 ## Working with Analytic Derivatives
 ---
 - [Defining Partial Derivatives on Explicit Components](models_implicit_components/analytic_derivatives/partial_derivs_explicit.ipynb)
-- [Defining Partial Derivatives on Implicit Components](blank.txt)
+- [Defining Partial Derivatives on Implicit Components](models_implicit_components/analytic_derivatives/partial_derivs_implicit.ipynb)
 - [Computing Total Derivatives of Coupled Models](blank.txt)
 
 ## Recoding and Reading Data
