@@ -25,6 +25,8 @@
     - file: examples/betz_limit/betz_limit
     - file: examples/keplers_equation/keplers_equation
 
+- part: Basic User Guide
+  chapters:
   - file: basic_user_guide/basic_user_guide.md
     sections:
     - file: basic_user_guide/multidisciplinary_optimization/sellar
@@ -32,6 +34,18 @@
     - file: basic_user_guide/multidisciplinary_optimization/sellar_opt
     - file: basic_user_guide/command_line/check_setup
     - file: basic_user_guide/command_line/make_n2
+    - file: basic_user_guide/reading_recording/basic_recording_example
+
+- part: Advanced User Guide
+  chapters:
+  - file: advanced_user_guide/advanced_user_guide
+    sections:
+    - file: advanced_user_guide/models_implicit_components/models_with_solvers_implicit
+    - file: advanced_user_guide/models_implicit_components/implicit_with_balancecomp
+    - file: advanced_user_guide/analytic_derivatives/derivs_of_coupled_systems
+    - file: advanced_user_guide/analytic_derivatives/partial_derivs_implicit
+    - file: advanced_user_guide/analytic_derivatives/partial_derivs_explicit
+
 
 #- part: Advanced User Guide
 #  chapters:

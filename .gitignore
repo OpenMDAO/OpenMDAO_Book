@@ -61,3 +61,7 @@ venv.bak/
 
 # OSX
 .DS_Store
+
+# OpenMDAO_book html
+openmdao_book/*/*/*.html
+*.html
