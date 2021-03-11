@@ -13,3 +13,7 @@ These tutorials serve to give an initial introduction to the OpenMDAO framework.
 ---
 - [Sanity Checking Your Model](command_line/check_setup.ipynb)
 - [Visualizing The Structure of Your Model](command_line/make_n2.ipynb)
+
+## Recording and Reading Data
+---
+- [Basic Recording Example](reading_recording/basic_recording_example.ipynb)
