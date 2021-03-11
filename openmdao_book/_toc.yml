@@ -42,6 +42,10 @@
     sections:
     - file: advanced_user_guide/models_implicit_components/models_with_solvers_implicit
     - file: advanced_user_guide/models_implicit_components/implicit_with_balancecomp
+    - file: advanced_user_guide/analytic_derivatives/derivs_of_coupled_systems
+    - file: advanced_user_guide/analytic_derivatives/partial_derivs_implicit
+    - file: advanced_user_guide/analytic_derivatives/partial_derivs_explicit
+
 
 #- part: Advanced User Guide
 #  chapters:

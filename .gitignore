@@ -64,3 +64,4 @@ venv.bak/
 
 # OpenMDAO_book html
 openmdao_book/*/*/*.html
+*.html
