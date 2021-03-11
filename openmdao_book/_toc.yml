@@ -36,6 +36,13 @@
     - file: basic_user_guide/command_line/make_n2
     - file: basic_user_guide/reading_recording/basic_recording_example
 
+- part: Advanced User Guide
+  chapters:
+  - file: advanced_user_guide/advanced_user_guide
+    sections:
+    - file: advanced_user_guide/models_implicit_components/models_with_solvers_implicit
+    - file: advanced_user_guide/models_implicit_components/implicit_with_balancecomp
+
 #- part: Advanced User Guide
 #  chapters:
 #  - file: start/overview
