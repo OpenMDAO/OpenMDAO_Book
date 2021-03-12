@@ -83,7 +83,7 @@ assert_near_equal(prob.get_val('paraboloid.x'), 6.6667, 1e-4);
 assert_near_equal(prob.get_val('paraboloid.y'), -7.33333, 1e-4);
 ```
 
-It's not necessary to show this in the documentaiton, so remove it using the same
+It's not necessary to show this in the documentation, so remove it using the same
 hiding metadata above.
 
 3. We will use a git pre commit hook to clean all output cells from the notebooks when committing them.  This will prevent git from picking up on meaningless diffs in the output cells and their metadata.

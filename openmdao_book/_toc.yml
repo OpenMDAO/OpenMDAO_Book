@@ -24,6 +24,7 @@
     - file: examples/paraboloid/paraboloid
     - file: examples/betz_limit/betz_limit
     - file: examples/keplers_equation/keplers_equation
+    - file: examples/hohmann_transfer/hohmann_transfer
 
 - part: Basic User Guide
   chapters:
