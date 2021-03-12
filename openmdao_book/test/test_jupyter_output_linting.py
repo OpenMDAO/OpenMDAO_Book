@@ -82,7 +82,7 @@ class LintJupyterOutputsTestCase(unittest.TestCase):
                                   f'-----------------------------------------\n'
                             self.fail(msg)
 
-                        if 'getting_stared.ipynb' not in file:
+                        if 'getting_started.ipynb' not in file:
                             correct_tags = ['active-ipynb', 'remove-input', 'remove-output']
                             msg = f"Missing metadata tags in header in notebook {file}. Found " \
                                   f"headers must contain the following tags.{correct_tags}."
