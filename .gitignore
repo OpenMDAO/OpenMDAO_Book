@@ -68,3 +68,5 @@ openmdao_book/*/*/*.html
 
 # Ignore SQL files
 openmdao_book/*/*/*.sql
+openmdao_book/*/*.sql
+cases.sql

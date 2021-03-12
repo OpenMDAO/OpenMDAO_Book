@@ -45,6 +45,8 @@
     - file: advanced_user_guide/analytic_derivatives/derivs_of_coupled_systems
     - file: advanced_user_guide/analytic_derivatives/partial_derivs_implicit
     - file: advanced_user_guide/analytic_derivatives/partial_derivs_explicit
+    - file: advanced_user_guide/recording/advanced_case_recording
+    - file: advanced_user_guide/example/euler_integration_example
 
 
 #- part: Advanced User Guide
