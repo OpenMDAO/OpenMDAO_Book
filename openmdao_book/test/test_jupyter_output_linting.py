@@ -82,6 +82,18 @@ class LintJupyterOutputsTestCase(unittest.TestCase):
                                   f'-----------------------------------------\n'
                             self.fail(msg)
 
+                        if 'getting_started.ipynb' not in file:
+                            correct_tags = ['active-ipynb', 'remove-input', 'remove-output']
+                            msg = f"Missing metadata tags in header in notebook {file}. All headers " \
+                                f"must contain the following tags: {correct_tags}"
+                            try:
+                                first_cell = json_data['cells'][0]['metadata']['tags']
+                            except KeyError:
+                                self.fail(msg)
+
+                            if sorted(first_cell) != sorted(correct_tags):
+                                self.fail(msg)
+
 
 if __name__ == '__main__':
     unittest.main()
