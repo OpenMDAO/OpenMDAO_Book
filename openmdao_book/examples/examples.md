@@ -12,3 +12,4 @@ If you need to learn the basics of how things work, please see the :ref:`User Gu
 - [Optimizing the Thickness Distribution of a Cantilever Beam Using the Adjoint Method](beam_optimization_example.ipynb)
 - [Revisiting the Beam Problem - Minimizing Stress with KS Constraints and BSplines](beam_optimization_example_part_2.ipynb)
 - [Simple Optimization using Simultaneous Derivatives](simul_deriv_example.ipynb)
+
