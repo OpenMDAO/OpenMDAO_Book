@@ -7,8 +7,7 @@ The Theory Manual exists to explain some of the underlying concepts behind OpenM
 ---
 - [OpenMDAO Class Structure](class_structure.ipynb)
 - [Understanding How Variables Work](implicit_transformation_of_vars.ipynb)
-- [The System Setup Stack: Understanding When to Use setup and configure]()
-- [OpenMDAO Solvers]()
-- [Writing Custom Solvers]()
-- [Scaling Variables in OpenMDAO]()
-- [Determining How Many Times a System was Executed]()
+- [The System Setup Stack: Understanding When to Use setup and configure](setup_stack.ipynb)
+- [OpenMDAO Solvers](solver_api.ipynb)
+- [Scaling Variables in OpenMDAO](scaling.ipynb)
+- [Determining How Many Times a System was Executed](iter_count.ipynb)

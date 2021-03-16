@@ -55,6 +55,7 @@
     - file: theory_manual/setup_stack
     - file: theory_manual/solver_api
     - file: theory_manual/scaling
+    - file: theory_manual/iter_count
 
 #- part: Advanced User Guide
 #  chapters:
