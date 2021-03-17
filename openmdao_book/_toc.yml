@@ -57,6 +57,7 @@
     - file: theory_manual/scaling
     - file: theory_manual/iter_count
     - file: theory_manual/total_derivs_theory
+    - file: theory_manual/setup_linear_solvers
 
 #- part: Advanced User Guide
 #  chapters:

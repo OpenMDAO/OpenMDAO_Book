@@ -15,5 +15,5 @@ The Theory Manual exists to explain some of the underlying concepts behind OpenM
 ## Total Derivatives Theory
 ---
 - [How Total Derivatives are Computed](total_derivs_theory.ipynb)
-- [Setting Up a Model for Efficient Linear Solves](blank.txt)
+- [Setting Up a Model for Efficient Linear Solves](setup_linear_solvers.ipynb)
 - [Advanced Linear Solver Algorithms for Special Cases](blank.txt)
