@@ -1,17 +1,5 @@
-# Table of content
-# Learn more at https://jupyterbook.org/customize/toc.html
-#
-#- file: intro
-#- file: content
-#  sections:
-#    - file: markdown
-#    - file: notebooks
-#    - file: test_openmdao_book
 
 - file: main
-#  sections:
-#    - file: other/citing
-#  numbered: true
 
 - part: Getting Started
   chapters:
@@ -58,46 +46,8 @@
     - file: theory_manual/iter_count
     - file: theory_manual/total_derivs_theory
     - file: theory_manual/setup_linear_solvers
-
-#- part: Advanced User Guide
-#  chapters:
-#  - file: start/overview
-#  - file: start/build
-#
-#- part: Features
-#  chapters:
-#  - file: start/overview
-#  - file: start/build
-#
-#
-#- part: Theory Manual
-#  chapters:
-#    - file: start/overview
-#    - file: start/build
-#
-#
-#  Getting Started
-#  Basic User Guide
-#  Advanced User Guide
-#  Features
-#  Examples
-#  Theory Manual
-#
-#- part: Get started
-#  chapters:
-#  - file: start/overview
-#  - file: start/build
-#
-#- part: Reference and test pages
-#  chapters:
-#  - file: test_pages/test
-#    sections:
-#      - file: test_pages/layout_elements
-#      - file: test_pages/equations
-#
-#
-#- file: main
-#  sections:
-#    - file: other/citing
-#- file: examples/paraboloid_tldr
-
+    - file: theory_manual/advanced_linear_solvers_special_cases/advanced_linear_solvers_special_cases.md
+      sections:
+        - file: theory_manual/advanced_linear_solvers_special_cases/fan_out
+        - file: theory_manual/advanced_linear_solvers_special_cases/separable
+        - file: theory_manual/advanced_linear_solvers_special_cases/vectorized
