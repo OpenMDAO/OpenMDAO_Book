@@ -49,6 +49,6 @@ documentation of the arguments/options/settings for a specific method, Component
 - [Building a Tool on Top of OpenMDAO]()
 - [Upgrading from OpenMDAO 2.10 to OpenMDAO 3]()
 - [Conversion Guide for the Auto-IVC (IndepVarComp) Feature]()
-- [File Wrapping]()
+- [File Wrapping](file_wrap.ipynb)
 - [Source Docs]()
 - [Developer Docs (if you’re going to contribute code)]()
