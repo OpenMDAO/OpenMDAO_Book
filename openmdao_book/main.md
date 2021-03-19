@@ -15,3 +15,31 @@ programming, and traditional design space exploration.
 
 If you are using OpenMDAO, please [cite](other/citing.ipynb) us!
 
+## User Guide
+---
+
+These are a collection of tutorial problems that teach you important concepts and techniques for using OpenMDAO.
+For new users, you should work through all material in **Getting Started** and **Basic User Guide**.
+That represents the minimum set of information you need to understand to be able to work with OpenMDAO models.
+
+You will also find tutorials in the **Advanced User Guide** to be very helpful as you grow more familiar with OpenMDAO,
+but you don't need to read these right away.
+They explain important secondary concepts that you will run into when working with more complex OpenMDAO models.
+
+- [Getting Started](getting_started/getting_started.md)
+- [Basic User Guide](basic_user_guide/basic_user_guide.md)
+- [Advanced User Guide](advanced_user_guide/advanced_user_guide.md)
+
+
+## Reference Guide
+---
+
+These docs are intended to be used by as a reference by users looking for explanation of a particular feature in detail or
+documentation of the arguments/options/settings for a specific method, Component, Driver, or Solver.
+
+- [Features](blank.txt)
+- [Examples](examples/examples.md)
+- [Theory Manual](theory_manual/theory_manual.md)
+
+
+## Other Useful Docs
