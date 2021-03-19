@@ -65,3 +65,8 @@ venv.bak/
 # OpenMDAO_book html
 openmdao_book/*/*/*.html
 *.html
+
+# Ignore SQL files
+openmdao_book/*/*/*.sql
+openmdao_book/*/*.sql
+cases.sql
