@@ -57,3 +57,5 @@ launch_buttons:
 sphinx:
   extra_extensions:
   - 'sphinx.ext.autodoc'
+  - 'sphinx.ext.autosummary'
+
