@@ -42,6 +42,6 @@ This document exists to help OpenMDAO documentation writers follow appropriate g
 in terms of formatting and embedding code.
 
 - [OpenMDAO Docs Style Guide](doc_style_guide.ipynb)
-- [Sphinx and Decorated Methods]()
+- [Sphinx and Decorated Methods](sphinx_decorators.ipynb)
 
 
