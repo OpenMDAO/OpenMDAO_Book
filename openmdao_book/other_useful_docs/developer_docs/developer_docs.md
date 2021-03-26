@@ -1,9 +1,8 @@
 # Developer Docs (if you're going to contribute code)
 ---
 
-
 ## Developer Install
------------------
+---
 
 Use `git` to clone the repository:
 
@@ -24,15 +23,15 @@ The `-e` option tells pip to install directly from your repository. This is very
 You can read the docs online, so it is not necessary to build them locally on your machine.
 But if you're going to build new features or add new examples, you'll want to build the docs locally, so that you can check them while you are writing them.
 
-- [Local Building of OpenMDAO Documentation]()
-- [Automating Doc Build and Custom Doc Deployment from Travis CI]()
-- [Caching on Travis CI]()
+- [Local Building of OpenMDAO Documentation](doc_build.ipynb)
+- [Automating Doc Build and Custom Doc Deployment from Travis CI](advanced_operations.ipynb)
+- [Caching on Travis CI](advanced_operations.ipynb)
 
 
 ## Creating Your Own OpenMDAO Plugins
 ---
 
-- [How To Write OpenMDAO Plugins]()
+- [How To Write OpenMDAO Plugins](writing_plugins.ipynb)
 
 
 ## Documentation Style Guide
