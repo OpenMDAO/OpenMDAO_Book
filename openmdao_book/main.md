@@ -46,7 +46,7 @@ documentation of the arguments/options/settings for a specific method, Component
 
 - [Command Line Tools](other_useful_docs/om_command.ipynb)
 - [How to Cite OpenMDAO](other_useful_docs/citing.ipynb)
-- [Building a Tool on Top of OpenMDAO]()
+- [Building a Tool on Top of OpenMDAO](other_useful_docs/building_a_tool/building_a_tool.md)
 - [Upgrading from OpenMDAO 2.10 to OpenMDAO 3]()
 - [Conversion Guide for the Auto-IVC (IndepVarComp) Feature](other_useful_docs/auto_ivc_api_translation.ipynb)
 - [File Wrapping](other_useful_docs/file_wrap.ipynb)
