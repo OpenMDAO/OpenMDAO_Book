@@ -64,7 +64,6 @@
     - file: other_useful_docs/building_a_tool/travis
   - file: other_useful_docs/auto_ivc_api_translation.ipynb
   - file: other_useful_docs/file_wrap.ipynb
-  - file: other_useful_docs/layout.ipynb
   - file: other_useful_docs/developer_docs/developer_docs.md
     sections:
     - file: other_useful_docs/developer_docs/advanced_operations.ipynb

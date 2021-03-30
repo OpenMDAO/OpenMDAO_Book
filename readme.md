@@ -67,4 +67,4 @@ metadata tags above to hide.
 
 3. We will have Github actions to check for things like notebooks with output, missing import headers, and more.
 
-4. Since 'n2.html' files and other build artifacts need to be manually copied over to the output `_build` directory to make the docs, each example notebook should be kept in its own directory.
+4. Since 'n2.html files and other build artifacts need to be manually copied over to the output `_build` directory to make the docs, each example notebook should be kept in its own directory.
