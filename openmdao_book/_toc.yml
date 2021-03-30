@@ -59,7 +59,6 @@
   - file: other_useful_docs/building_a_tool/building_a_tool.md
     sections:
     - file: other_useful_docs/building_a_tool/repository_structure
-    - file: other_useful_docs/building_a_tool/docs_with_jupyter_notebook
     - file: other_useful_docs/building_a_tool/github_pages
     - file: other_useful_docs/building_a_tool/release_process
     - file: other_useful_docs/building_a_tool/travis
