@@ -37,7 +37,7 @@ They explain important secondary concepts that you will run into when working wi
 These docs are intended to be used by as a reference by users looking for explanation of a particular feature in detail or
 documentation of the arguments/options/settings for a specific method, Component, Driver, or Solver.
 
-- [Features](blank.txt)
+- [Features](features/features.md)
 - [Examples](examples/examples.md)
 - [Theory Manual](theory_manual/theory_manual.md)
 
