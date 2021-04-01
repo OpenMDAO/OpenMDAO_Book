@@ -11,7 +11,7 @@
     sections:
     - file: examples/tldr_paraboloid
     - file: examples/betz_limit
-    - file: examples/hohmann_transfer
+    - file: examples/hohmann_transfer/hohmann_transfer
     - file: examples/keplers_equation
     - file: examples/circuit_analysis_examples
     - file: examples/beam_optimization_example
