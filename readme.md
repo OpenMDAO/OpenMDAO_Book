@@ -52,7 +52,7 @@ except ImportError:
     import openmdao.api as om
 ```
 
-This cell should be tagged with the following metadata.  The "remove-input" and "remove-output" tags prevent it from showing up in the documentation, and the "hide_input" portion collapses the input cell.
+This cell should be tagged with the following metadata.  The "remove-input" and "remove-output" tags prevent it from showing up in the documentation, and the "hide_input" portion collapses the input cell. When adding the import code from above, add the tag `active-ipynb` to the list. To add a tag, select `View` -> `Cell Toolbar` -> `Tags`.
 
 ``` yaml
 {
@@ -89,3 +89,7 @@ hiding metadata above.
 3. We will use a git pre commit hook to clean all output cells from the notebooks when committing them.  This will prevent git from picking up on meaningless diffs in the output cells and their metadata.
 
 4. Since 'n2.html' files and other build artifacts need to be manually copied over to the output `_build` directory to make the docs, each example notebook should be kept in its own directory.
+
+### Troubleshooting
+
+- If you get an error `jupyter_client.kernelspec.NoSuchKernel: No such kernel named name-of-your-env`, this means your notebook's kernel is not set to `Python 3`. To fix this, select `Kernel` -> `Change Kernel` -> `Python 3` and then rebuild the docs.
