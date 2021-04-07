@@ -68,3 +68,8 @@ openmdao_book/*/*/*.html
 
 # Don't add _srcdocs
 _srcdocs
+
+# Ignore SQL files
+openmdao_book/*/*/*.sql
+openmdao_book/*/*.sql
+cases.sql
