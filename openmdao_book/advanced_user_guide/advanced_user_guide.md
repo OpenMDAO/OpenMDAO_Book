@@ -16,7 +16,7 @@ These tutorials cover more advanced topics. This guide assumes that you have rea
 
 ## Recoding and Reading Data
 ---
-- [Advanced Recording Example](blank.txt)
+- [Advanced Recording Example](recording/advanced_case_recording.ipynb)
 
 ## Using OpenMDAO as a Part of a Larger Process
-- [Cannonball Example with Euler Integration and an External Optimizer](blank.txt)
+- [Cannonball Example with Euler Integration and an External Optimizer](example/euler_integration_example.ipynb)
