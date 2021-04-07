@@ -60,7 +60,7 @@ jobs:
 
       - name: 'Build OpenMDAO Book'
         run: |
-          python build_jupyter_book.py
+          ./build_all_docs.sh
           cd openmdao_book/_build/html
           zip -r ./openmdao_book.zip .
 
