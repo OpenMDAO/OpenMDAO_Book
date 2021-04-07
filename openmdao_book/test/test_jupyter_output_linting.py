@@ -7,7 +7,8 @@ exclude = [
     'tests',
     'test',
     '_build',
-    '.ipynb_checkpoints'
+    '.ipynb_checkpoints',
+    '_srcdocs'
 ]
 
 directories = []
