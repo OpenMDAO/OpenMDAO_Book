@@ -6,6 +6,7 @@ OpenMDAO’s fully-supported features are documented here, each in a self-contai
 ## Core Features
 ---
 - [Working with Components](core_features/working_with_components/main.md)
+- [Working with Groups](core_features/working_with_groups/main.md)
 
 ## Building Blocks
 ---
