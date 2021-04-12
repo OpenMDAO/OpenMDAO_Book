@@ -92,6 +92,7 @@ jobs:
           pip install ipyparallel
 
       - name: Additional setup for MPI under notebooks
+        run: |
           jupyter serverextension enable --py ipyparallel
           ipython profile create --parallel --profile=mpi
           ipcluster start -n 2 --profile=mpi
