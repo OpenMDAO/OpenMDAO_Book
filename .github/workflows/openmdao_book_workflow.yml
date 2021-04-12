@@ -95,10 +95,11 @@ jobs:
           jupyter serverextension enable --py ipyparallel
           ipython profile create --parallel --profile=mpi
           ipcluster start -n 2 --profile=mpi
+          tail ~/.ipython/profile_mpi/ipcluster_config.py
 
       - name: Run testflo
         run: |
-          tail ~/.ipython/profile_mpi/ipcluster_config.py
+          testflo
 
   # This job is called build_docs
   build_docs:
