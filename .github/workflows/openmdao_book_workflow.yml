@@ -91,9 +91,14 @@ jobs:
           pip install testflo
           pip install ipyparallel
 
+      - name: 'Additional setup for MPI under notebooks'
+          jupyter serverextension enable --py ipyparallel
+          ipython profile create --parallel --profile=mpi
+          ipcluster start -n 2 --profile=mpi
+
       - name: 'Run testflo'
         run: |
-          testflo .
+          tail ~/.ipython/profile_mpi/ipcluster_config.py
 
   # This job is called build_docs
   build_docs:
