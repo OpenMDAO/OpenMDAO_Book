@@ -32,6 +32,13 @@ jobs:
           pip install jupyter
           pip install nbconvert
           pip install testflo
+          pip install ipyparallel
+
+      - name: 'Setup MPI stuff'
+        run: |
+          pip install mpi4py
+          pip install petsc
+          pip install petsc4py
 
       - name: 'Run testflo'
         run: |
@@ -57,6 +64,7 @@ jobs:
           pip install jupyter-book
           pip install nbconvert
           pip install testflo
+          pip install ipyparallel
 
       - name: 'Build OpenMDAO Book'
         run: |
