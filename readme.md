@@ -38,7 +38,8 @@ This cell should be tagged with the following metadata.  The "remove-input" and 
   "hide_input": true,
   "tags": [
     "remove-input",
-    "remove-output"
+    "remove-output",
+    "active-ipynb"
   ],
   "trusted": true
 }
