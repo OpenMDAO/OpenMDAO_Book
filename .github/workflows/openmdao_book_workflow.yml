@@ -83,7 +83,7 @@ jobs:
           echo "=============================================================";
           conda list;
 
-      - name: 'Install notebook dependencies'
+      - name: Install notebook dependencies
         run: |
           pip install matplotlib
           pip install jupyter
@@ -91,12 +91,12 @@ jobs:
           pip install testflo
           pip install ipyparallel
 
-      - name: 'Additional setup for MPI under notebooks'
+      - name: Additional setup for MPI under notebooks
           jupyter serverextension enable --py ipyparallel
           ipython profile create --parallel --profile=mpi
           ipcluster start -n 2 --profile=mpi
 
-      - name: 'Run testflo'
+      - name: Run testflo
         run: |
           tail ~/.ipython/profile_mpi/ipcluster_config.py
 
