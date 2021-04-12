@@ -85,18 +85,18 @@ jobs:
 
       - name: Install notebook dependencies
         run: |
-          pip install matplotlib
-          pip install jupyter
-          pip install nbconvert
-          pip install testflo
-          pip install ipyparallel
+          pip install matplotlib;
+          pip install jupyter;
+          pip install nbconvert;
+          pip install testflo;
+          pip install ipyparallel;
 
       - name: Additional setup for MPI under notebooks
         run: |
-          jupyter serverextension enable --py ipyparallel
-          ipython profile create --parallel --profile=mpi
-          ipcluster start -n 2 --profile=mpi
-          tail ~/.ipython/profile_mpi/ipcluster_config.py
+          jupyter serverextension enable --py ipyparallel;
+          ipython profile create --parallel --profile=mpi;
+          tail ~/.ipython/profile_mpi/ipcluster_config.py;
+          ipcluster start -n 2 --profile=mpi &;
 
       #- name: Run testflo
         #run: |
