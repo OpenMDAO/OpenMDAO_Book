@@ -67,10 +67,11 @@ jobs:
           echo "=============================================================";
           echo "Install OpenMDAO";
           echo "=============================================================";
+          cd ..;
           git clone -q https://github.com/OpenMDAO/OpenMDAO;
           cd OpenMDAO;
           pip install .[all];
-          cd ..;
+          cd ../OpenMDAO_Book;
 
           echo "=============================================================";
           echo "Install optional packages for testing/coverage";
@@ -91,14 +92,11 @@ jobs:
           pip install testflo;
           pip install ipyparallel;
 
-      - name: Additional setup for MPI under notebooks
+      - name: Setup server for notebooks under MPI then run test.
         run: |
           jupyter serverextension enable --py ipyparallel;
           ipython profile create --parallel --profile=mpi;
           echo "c.IPClusterEngines.engine_launcher_class = 'MPIEngineSetLauncher'" >> ~/.ipython/profile_mpi/ipcluster_config.py;
           ipcluster start -n 2 --profile=mpi &
-
-      - name: Run testflo
-        run: |
           testflo
 
