@@ -97,7 +97,7 @@ jobs:
           jupyter serverextension enable --py ipyparallel;
           ipython profile create --parallel --profile=mpi;
           echo "c.IPClusterEngines.engine_launcher_class = 'MPIEngineSetLauncher'" >> ~/.ipython/profile_mpi/ipcluster_config.py;
-          ipcluster start -n 2 --profile=mpi &
+          #ipcluster start -n 2 --profile=mpi &
           echo $PATH
           ls -al /
           which mpirun
