@@ -97,9 +97,9 @@ jobs:
           ipcluster start -n 2 --profile=mpi
           tail ~/.ipython/profile_mpi/ipcluster_config.py
 
-      - name: Run testflo
-        run: |
-          testflo
+      #- name: Run testflo
+        #run: |
+          #testflo
 
   # This job is called build_docs
   build_docs:
