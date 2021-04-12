@@ -50,7 +50,6 @@ jobs:
           echo "=============================================================";
           conda install -c anaconda mpi4py -q -y;
           conda install -c conda-forge petsc=3.12 petsc4py -q -y;
-          fi
 
           echo "=============================================================";
           echo "Install pyoptsparse";
