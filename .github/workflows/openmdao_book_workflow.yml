@@ -102,37 +102,3 @@ jobs:
         run: |
           testflo
 
-  # This job is called build_docs
-  build_docs:
-    # Run on Ubuntu
-    runs-on: ubuntu-latest
-
-    # Only run if test_docs was successful
-    needs: [ test_docs ]
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
-
-      - name: 'Install dependencies'
-        run: |
-          pip install matplotlib
-          pip install jupyter-book
-          pip install nbconvert
-          pip install testflo
-          pip install ipyparallel
-
-      - name: 'Build OpenMDAO Book'
-        run: |
-          ./build_all_docs.sh
-          cd openmdao_book/_build/html
-          zip -r ./openmdao_book.zip .
-
-      - name: 'Upload Book'
-        uses: actions/upload-artifact@v2
-        with:
-          name: openmdao_book
-          path: openmdao_book/_build/html/openmdao_book.zip
-          retention-days: 7
