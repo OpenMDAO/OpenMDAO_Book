@@ -108,4 +108,16 @@ jobs:
           echo "=============================================================";
           testflo;
 
+          echo "=============================================================";
+          echo "Build the docs.";
+          echo "=============================================================";
+          ./build_all_docs.sh
+          cd openmdao_book/_build/html
+          zip -r ./openmdao_book.zip .
 
+      - name: 'Upload Book'
+        uses: actions/upload-artifact@v2
+        with:
+          name: openmdao_book
+          path: openmdao_book/_build/html/openmdao_book.zip
+          retention-days: 7
