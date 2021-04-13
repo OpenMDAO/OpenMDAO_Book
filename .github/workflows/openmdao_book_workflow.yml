@@ -102,6 +102,7 @@ jobs:
           echo "c.IPClusterEngines.engine_launcher_class = 'MPIEngineSetLauncher'" >> ~/.ipython/profile_mpi/ipcluster_config.py;
           echo "c.IPClusterStart.controller_launcher_class = 'MPIControllerLauncher'" >> ~/.ipython/profile_mpi/ipcluster_config.py;
           ipcluster start -n 2 --profile=mpi &
+          sleep 8
 
           echo "=============================================================";
           echo "Run the tests.";
@@ -114,6 +115,9 @@ jobs:
           ./build_all_docs.sh
           cd openmdao_book/_build/html
           zip -r ./openmdao_book.zip .
+          echo "=============================================================";
+          echo "Success.";
+          echo "=============================================================";
 
       - name: 'Upload Book'
         uses: actions/upload-artifact@v2
