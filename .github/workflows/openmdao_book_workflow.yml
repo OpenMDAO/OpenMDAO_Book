@@ -34,7 +34,7 @@ jobs:
           ./openmpi-4.0.2/configure --prefix="/home/${USER}/.openmpi"
           make -j
           sudo make install
-          export PATH=$PATH:~/openmpi/bin
+          export PATH=$PATH:~/.openmpi/bin
 
           echo "=============================================================";
           echo "Run #${GITHUB_RUN_NUMBER}";
