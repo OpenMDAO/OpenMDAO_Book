@@ -59,7 +59,6 @@ jobs:
 
           cd build_pyoptsparse;
           chmod 755 ./build_pyoptsparse.sh;
-          PAROPT=-a;
           cd ..;
 
           export LD_LIBRARY_PATH=$HOME/ipopt/lib;
@@ -72,12 +71,6 @@ jobs:
           cd OpenMDAO;
           pip install .[all];
           cd ../OpenMDAO_Book;
-
-          echo "=============================================================";
-          echo "Install optional packages for testing/coverage";
-          echo "=============================================================";
-          pip install psutil objgraph git+https://github.com/mdolab/pyxdsm;
-          pyppeteer-install;
 
           echo "=============================================================";
           echo "Install packages for Notebooks.";
