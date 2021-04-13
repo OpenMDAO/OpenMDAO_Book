@@ -1,4 +1,4 @@
-# Run linting check on Jupyter notebooks
+# Run linting check on Jupyter notebooks.
 
 name: OpenMDAO Book Workflow
 
