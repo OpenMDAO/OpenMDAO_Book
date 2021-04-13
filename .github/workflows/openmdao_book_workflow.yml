@@ -115,7 +115,7 @@ jobs:
           cd openmdao_book/_build/html
           zip -r ./openmdao_book.zip .
           echo "=============================================================";
-          echo "Success.";
+          echo "Operations Completed.";
           echo "=============================================================";
 
       - name: 'Upload Book'
