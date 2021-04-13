@@ -34,6 +34,7 @@ jobs:
           ./openmpi-4.0.2/configure --prefix="/home/${USER}/.openmpi"
           make -j
           sudo make install
+          export PATH=$PATH:~/openmpi/bin
 
           echo "=============================================================";
           echo "Run #${GITHUB_RUN_NUMBER}";
@@ -106,6 +107,7 @@ jobs:
           #ipcluster start -n 2 --profile=mpi &
           ls -al ~/.openmpi/
           ls -al ~/.openmpi/bin
+          echo $PATH
           which mpirun
           which mpiexec
 
