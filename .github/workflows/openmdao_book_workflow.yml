@@ -96,7 +96,6 @@ jobs:
           echo "=============================================================";
           echo "Final additional setup to run MPI under notebooks.";
           echo "=============================================================";
-          which mpirun;
           jupyter serverextension enable --py ipyparallel;
           ipython profile create --parallel --profile=mpi;
           echo "c.IPClusterEngines.engine_launcher_class = 'MPIEngineSetLauncher'" >> ~/.ipython/profile_mpi/ipcluster_config.py;
