@@ -104,7 +104,8 @@ jobs:
           ipython profile create --parallel --profile=mpi;
           echo "c.IPClusterEngines.engine_launcher_class = 'MPIEngineSetLauncher'" >> ~/.ipython/profile_mpi/ipcluster_config.py;
           #ipcluster start -n 2 --profile=mpi &
-          ls -al /
+          ls -al ~/.openmpi/
+          ls -al ~/.openmpi/bin
           which mpirun
           which mpiexec
 
