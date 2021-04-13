@@ -7,6 +7,7 @@ OpenMDAO’s fully-supported features are documented here, each in a self-contai
 ---
 - [Working with Components](core_features/working_with_components/main.md)
 - [Working with Groups](core_features/working_with_groups/main.md)
+- [Adding design variables, constraints, and objectives](core_features/adding_desvars_cons_objs/main.md)
 
 ## Building Blocks
 ---
