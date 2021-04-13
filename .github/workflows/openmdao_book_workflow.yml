@@ -80,28 +80,32 @@ jobs:
           pyppeteer-install;
 
           echo "=============================================================";
-          echo "List installed packages/versions";
+          echo "Install packages for Notebooks.";
           echo "=============================================================";
-          conda list;
-
-      - name: Install notebook dependencies
-        run: |
           pip install matplotlib;
           pip install jupyter;
           pip install nbconvert;
           pip install testflo;
           pip install ipyparallel;
 
-      - name: Setup server for notebooks under MPI then run test.
-        run: |
-          export PATH=$PATH:/usr/share/miniconda/envs/OpenMDAO/bin/
+          echo "=============================================================";
+          echo "List installed packages/versions";
+          echo "=============================================================";
+          conda list;
+
+          echo "=============================================================";
+          echo "Final additional setup to run MPI under notebooks.";
+          echo "=============================================================";
           which mpirun;
-          conda activate OpenMDAO;
           jupyter serverextension enable --py ipyparallel;
           ipython profile create --parallel --profile=mpi;
           echo "c.IPClusterEngines.engine_launcher_class = 'MPIEngineSetLauncher'" >> ~/.ipython/profile_mpi/ipcluster_config.py;
           echo "c.IPClusterStart.controller_launcher_class = 'MPIControllerLauncher'" >> ~/.ipython/profile_mpi/ipcluster_config.py;
           ipcluster start -n 2 --profile=mpi &
+
+          echo "=============================================================";
+          echo "Run the tests.";
+          echo "=============================================================";
           testflo;
 
 
