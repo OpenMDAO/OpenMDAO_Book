@@ -8,5 +8,5 @@
 - [Specifying Units for Variables](units.ipynb)
 - [Scaling Variables](scaling.ipynb)
 - [Discrete Variables](discrete_variables.ipynb)
-- [Component Options (Arguments to Components)](options.ipynb)
+- [Component Options and Arguments](options.ipynb)
 
