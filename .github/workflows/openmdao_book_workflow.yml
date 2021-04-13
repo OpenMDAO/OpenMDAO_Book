@@ -101,7 +101,7 @@ jobs:
           echo "c.IPClusterEngines.engine_launcher_class = 'MPIEngineSetLauncher'" >> ~/.ipython/profile_mpi/ipcluster_config.py;
           echo "c.IPClusterStart.controller_launcher_class = 'MPIControllerLauncher'" >> ~/.ipython/profile_mpi/ipcluster_config.py;
           ipcluster start -n 2 --profile=mpi &
-          sleep 8
+          sleep 12
 
           echo "=============================================================";
           echo "Run the tests.";
