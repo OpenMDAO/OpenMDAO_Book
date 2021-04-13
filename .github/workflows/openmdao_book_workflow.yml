@@ -94,7 +94,7 @@ jobs:
 
       - name: Setup server for notebooks under MPI then run test.
         run: |
-          export PATH=$PATH:/usr/share/miniconda/envs/OpenMDAO/bin/mpirun
+          export PATH=$PATH:/usr/share/miniconda/envs/OpenMDAO/bin/
           which mpirun;
           conda activate OpenMDAO;
           jupyter serverextension enable --py ipyparallel;
