@@ -1,4 +1,3 @@
-
 - file: main
 
 - part: Getting Started
@@ -58,3 +57,24 @@
         - file: theory_manual/advanced_linear_solvers_special_cases/fan_out
         - file: theory_manual/advanced_linear_solvers_special_cases/separable
         - file: theory_manual/advanced_linear_solvers_special_cases/vectorized
+
+- part: Other Useful Docs
+  chapters:
+  - file: other_useful_docs/om_command.ipynb
+  - file: other_useful_docs/citing.ipynb
+  - file: other_useful_docs/building_a_tool/building_a_tool.md
+    sections:
+    - file: other_useful_docs/building_a_tool/repository_structure
+    - file: other_useful_docs/building_a_tool/github_pages
+    - file: other_useful_docs/building_a_tool/release_process
+    - file: other_useful_docs/building_a_tool/travis
+  - file: other_useful_docs/auto_ivc_api_translation
+  - file: other_useful_docs/api_translation
+  - file: other_useful_docs/file_wrap.ipynb
+  - file: other_useful_docs/developer_docs/developer_docs.md
+    sections:
+    - file: other_useful_docs/developer_docs/advanced_operations.ipynb
+    - file: other_useful_docs/developer_docs/doc_build.ipynb
+    - file: other_useful_docs/developer_docs/doc_style_guide.ipynb
+    - file: other_useful_docs/developer_docs/sphinx_decorators.ipynb
+    - file: other_useful_docs/developer_docs/writing_plugins.ipynb

@@ -13,32 +13,11 @@ Also, building the notebook seems to require Python 3.8.
 
 ## Building
 
-From the repo root
+From the repo root simply run the command below to build the docs from the root directory:
 
 ```
-jupyter-book build openmdao_book
+python build_jupyter_book.py
 ```
-
-The file `other/citing.md` contains an executable code-cell that is
-executed when the notebook is built.  When introducing a new code-cells
-to a markdown file, the user is required to use the command
-
-```
-jb myst init openmdao_book/other/citing.md 
-```
-
-This adds meta-data for the file that should only need to be changed
-if additional execution information is added (I think).
-
-Building the actual docs is then done from the repo root using:
-
-```
-jb build openmdao_book 
-cp openmdao_book/examples/n2.html openmdao_book/_build/html/examples/
-```
-
-That last command is what we need to automate, since the n2's will have the same name by default.
-
 
 ## Notebook Guidelines
 
@@ -52,7 +31,7 @@ except ImportError:
     import openmdao.api as om
 ```
 
-This cell should be tagged with the following metadata.  The "remove-input" and "remove-output" tags prevent it from showing up in the documentation, and the "hide_input" portion collapses the input cell. When adding the import code from above, add the tag `active-ipynb` to the list. To add a tag, select `View` -> `Cell Toolbar` -> `Tags`.
+This cell should be tagged with the following metadata.  The "remove-input" and "remove-output" tags prevent it from showing up in the documentation, and the "hide_input" portion collapses the input cell. To add a tag in Jupyter select `View` -> `Cell Toolbar` -> `Tags` add add any of the tags desired.
 
 ``` yaml
 {
@@ -83,10 +62,10 @@ assert_near_equal(prob.get_val('paraboloid.x'), 6.6667, 1e-4);
 assert_near_equal(prob.get_val('paraboloid.y'), -7.33333, 1e-4);
 ```
 
-It's not necessary to show this in the documentation, so remove it using the same
-hiding metadata above.
+It's not necessary to show this in the documentaiton, so remove it using the same
+metadata tags above to hide.
 
-3. We will use a git pre commit hook to clean all output cells from the notebooks when committing them.  This will prevent git from picking up on meaningless diffs in the output cells and their metadata.
+3. We will have Github actions to check for things like notebooks with output, missing import headers, and more.
 
 4. Since 'n2.html' files and other build artifacts need to be manually copied over to the output `_build` directory to make the docs, each example notebook should be kept in its own directory.
 
