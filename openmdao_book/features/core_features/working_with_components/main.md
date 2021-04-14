@@ -7,4 +7,6 @@
 - [IndepVarComp](indepvarcomp.ipynb)
 - [Specifying Units for Variables](units.ipynb)
 - [Scaling Variables](scaling.ipynb)
+- [Discrete Variables](discrete_variables.ipynb)
+- [Component Options and Arguments](options.ipynb)
 

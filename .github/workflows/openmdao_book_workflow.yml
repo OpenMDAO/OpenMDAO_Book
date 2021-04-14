@@ -1,4 +1,4 @@
-# Run linting check on Jupyter notebooks
+# Run linting check on Jupyter notebooks.
 
 name: OpenMDAO Book Workflow
 
@@ -20,49 +20,96 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
           python-version: 3.8
 
-      - name: 'Install dependencies'
+      - name: Install OpenMDAO Stack
         run: |
-          pip install matplotlib
-          pip install jupyter
-          pip install nbconvert
-          pip install testflo
+          echo "=============================================================";
+          echo "Run #${GITHUB_RUN_NUMBER}";
+          echo "Run ID: ${GITHUB_RUN_ID}";
+          echo "Testing: ${GITHUB_REPOSITORY}";
+          echo "Triggered by: ${GITHUB_EVENT_NAME}";
+          echo "Initiated by: ${GITHUB_ACTOR}";
+          echo "=============================================================";
 
-      - name: 'Run testflo'
-        run: |
-          testflo .
+          echo "=============================================================";
+          echo "Create conda environment";
+          echo "=============================================================";
+          source $CONDA/etc/profile.d/conda.sh;
+          echo $CONDA/bin >> $GITHUB_PATH;
+          conda create -n OpenMDAO python=3.8 numpy=1.18 scipy=1.4 -q -y;
+          conda activate OpenMDAO;
 
-  # This job is called build_docs
-  build_docs:
-    # Run on Ubuntu
-    runs-on: ubuntu-latest
+          echo "=============================================================";
+          echo "Install PETSc";
+          echo "=============================================================";
+          conda install -c anaconda mpi4py -q -y;
+          conda install -c conda-forge petsc=3.12 petsc4py -q -y;
 
-    # Only run if test_docs was successful
-    needs: [ test_docs ]
+          echo "=============================================================";
+          echo "Install pyoptsparse";
+          echo "=============================================================";
 
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
+          git clone -q https://github.com/OpenMDAO/build_pyoptsparse;
 
-      - name: 'Install dependencies'
-        run: |
-          pip install matplotlib
-          pip install jupyter-book
-          pip install nbconvert
-          pip install testflo
+          cd build_pyoptsparse;
+          chmod 755 ./build_pyoptsparse.sh;
+          cd ..;
 
-      - name: 'Build OpenMDAO Book'
-        run: |
+          export LD_LIBRARY_PATH=$HOME/ipopt/lib;
+
+          echo "=============================================================";
+          echo "Install OpenMDAO";
+          echo "=============================================================";
+          cd ..;
+          git clone -q https://github.com/OpenMDAO/OpenMDAO;
+          cd OpenMDAO;
+          pip install .[all];
+          cd ../OpenMDAO_Book;
+
+          echo "=============================================================";
+          echo "Install packages for Notebooks.";
+          echo "=============================================================";
+          pip install matplotlib;
+          pip install jupyter;
+          pip install nbconvert;
+          pip install testflo;
+          pip install ipyparallel;
+
+          echo "=============================================================";
+          echo "List installed packages/versions";
+          echo "=============================================================";
+          conda list;
+
+          echo "=============================================================";
+          echo "Final additional setup to run MPI under notebooks.";
+          echo "=============================================================";
+          jupyter serverextension enable --py ipyparallel;
+          ipython profile create --parallel --profile=mpi;
+          echo "c.IPClusterEngines.engine_launcher_class = 'MPIEngineSetLauncher'" >> ~/.ipython/profile_mpi/ipcluster_config.py;
+          echo "c.IPClusterStart.controller_launcher_class = 'MPIControllerLauncher'" >> ~/.ipython/profile_mpi/ipcluster_config.py;
+          ipcluster start -n 2 --profile=mpi &
+          sleep 12
+
+          echo "=============================================================";
+          echo "Run the tests.";
+          echo "=============================================================";
+          testflo;
+
+          echo "=============================================================";
+          echo "Build the docs.";
+          echo "=============================================================";
           ./build_all_docs.sh
           cd openmdao_book/_build/html
           zip -r ./openmdao_book.zip .
+          echo "=============================================================";
+          echo "Operations Completed.";
+          echo "=============================================================";
 
       - name: 'Upload Book'
         uses: actions/upload-artifact@v2
