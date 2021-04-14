@@ -12,6 +12,23 @@ OpenMDAO’s fully-supported features are documented here, each in a self-contai
 
 ## Building Blocks
 ---
+- [ExecComp](building_blocks/exec_comp.ipynb)
+- [BalanceComp](building_blocks/blank.ipynb)
+- [EQConstraintComp](building_blocks/blank.ipynb)
+- [ExternalCodeComp](building_blocks/blank.ipynb)
+- [ExternalCodeImplicitComp](building_blocks/blank.ipynb)
+- [LinearSystemComp](building_blocks/blank.ipynb)
+- [MetaModelStructuredComp](building_blocks/blank.ipynb)
+- [MetaModelUnStructuredComp](building_blocks/blank.ipynb)
+- [MultiFiMetaModelUnStructuredComp](building_blocks/blank.ipynb)
+- [MuxComp and DemuxComp](building_blocks/blank.ipynb)
+- [KSComp](building_blocks/blank.ipynb)
+- [SplineComp](building_blocks/blank.ipynb)
+- [AddSubtractComp](building_blocks/blank.ipynb)
+- [CrossProductComp](building_blocks/blank.ipynb)
+- [DotProductComp](building_blocks/blank.ipynb)
+- [MatrixVectorProductComp](building_blocks/blank.ipynb)
+- [VectorMagnitudeComp](building_blocks/blank.ipynb)
 
 ## Recording Data
 ---
