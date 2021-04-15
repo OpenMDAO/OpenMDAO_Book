@@ -20,6 +20,7 @@ OpenMDAO’s fully-supported features are documented here, each in a self-contai
 
 ## Debugging
 ---
+- [Listing Variables](debugging/listing_variables.ipynb)
 
 Units Definitions here.
 
