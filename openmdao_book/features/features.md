@@ -13,9 +13,9 @@ OpenMDAO’s fully-supported features are documented here, each in a self-contai
 ## Building Blocks
 ---
 - [ExecComp](building_blocks/exec_comp.ipynb)
-- [BalanceComp](building_blocks/blank.ipynb)
-- [EQConstraintComp](building_blocks/blank.ipynb)
-- [ExternalCodeComp](building_blocks/blank.ipynb)
+- [BalanceComp](building_blocks/balance_comp.ipynb)
+- [EQConstraintComp](building_blocks/eq_constraint_comp.ipynb)
+- [ExternalCodeComp](building_blocks/external_code_comp.ipynb)
 - [ExternalCodeImplicitComp](building_blocks/blank.ipynb)
 - [LinearSystemComp](building_blocks/blank.ipynb)
 - [MetaModelStructuredComp](building_blocks/blank.ipynb)
