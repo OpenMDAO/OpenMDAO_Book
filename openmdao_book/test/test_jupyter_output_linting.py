@@ -78,9 +78,7 @@ class LintJupyterOutputsTestCase(unittest.TestCase):
 
                 json_data = json.load(f)
                 first_block = json_data['cells'][0]['source']
-                if first_block == header or first_block == mpi_header:
-                    continue
-                else:
+                if first_block != header and first_block != mpi_header:
                     header_text = '\n'.join(header)
                     msg = f'required header not found in notebook {file}\n' \
                           f'All notebooks should contain the following block before ' \
@@ -102,7 +100,7 @@ class LintJupyterOutputsTestCase(unittest.TestCase):
 
                 if sorted(first_cell) != sorted(correct_tags):
                     msg = f"Incorrect header tags in notebook {file}. Found " \
-                          f"{first_cell}, should be: {correct_tags}."
+                          f"{sorted(first_cell)}, should be: {sorted(correct_tags)}."
                     self.fail(msg)
 
 
