@@ -63,7 +63,7 @@ class LintJupyterOutputsTestCase(unittest.TestCase):
 
         mpi_header = ['%pylab inline\n',
                       'from ipyparallel import Client, error\n',
-                      'cluster=Client(profile="mpi") \n',
+                      'cluster=Client(profile="mpi")\n',
                       'view=cluster[:]\n',
                       'view.block=True\n',
                       '\n']
