@@ -45,20 +45,6 @@
   - file: theory_manual/theory_manual
   - file: features/features.md
   - file: examples/examples.md
-    # sections:
-    # - file: theory_manual/class_structure
-    # - file: theory_manual/implicit_transformation_of_vars
-    # - file: theory_manual/setup_stack
-    # - file: theory_manual/solver_api
-    # - file: theory_manual/scaling
-    # - file: theory_manual/iter_count
-    # - file: theory_manual/total_derivs_theory
-    # - file: theory_manual/setup_linear_solvers
-    # - file: theory_manual/advanced_linear_solvers_special_cases/advanced_linear_solvers_special_cases.md
-    #   sections:
-    #     - file: theory_manual/advanced_linear_solvers_special_cases/fan_out
-    #     - file: theory_manual/advanced_linear_solvers_special_cases/separable
-    #     - file: theory_manual/advanced_linear_solvers_special_cases/vectorized
 
 - part: Other Useful Docs
   chapters:
