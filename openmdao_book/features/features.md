@@ -19,7 +19,7 @@ OpenMDAO’s fully-supported features are documented here, each in a self-contai
 - [ExternalCodeImplicitComp](building_blocks/external_code_implicit_comp.ipynb)
 - [LinearSystemComp](building_blocks/linearsystem_comp.ipynb)
 - [MetaModelStructuredComp](building_blocks/metamodelstructured_comp.ipynb)
-- [MetaModelUnStructuredComp](building_blocks/blank.ipynb)
+- [MetaModelUnStructuredComp](building_blocks/metamodelunstructured_comp.ipynb)
 - [MultiFiMetaModelUnStructuredComp](building_blocks/blank.ipynb)
 - [MuxComp and DemuxComp](building_blocks/blank.ipynb)
 - [KSComp](building_blocks/blank.ipynb)
