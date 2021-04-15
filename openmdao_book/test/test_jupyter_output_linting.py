@@ -55,50 +55,53 @@ class LintJupyterOutputsTestCase(unittest.TestCase):
         """
         Check Jupyter Notebooks for code cell installing openmdao.
         """
-        skip_notebooks = ['notebooks.ipynb', 'src_indices.ipynb', 'distributed_components.ipynb',
-                          'parallel_group.ipynb']
-        header = ["try:",
-                  "import openmdao.api as om",
-                  "except ImportError:",
-                  "!python -m pip install openmdao[notebooks]",
-                  "import openmdao.api as om"]
+        header = ["try:\n",
+                  "    import openmdao.api as om\n",
+                  "except ImportError:\n",
+                  "    !python -m pip install openmdao[notebooks]\n",
+                  "    import openmdao.api as om"]
+
+        mpi_header = ['%pylab inline\n',
+                      'from ipyparallel import Client, error\n',
+                      'cluster=Client(profile="mpi")\n',
+                      'view=cluster[:]\n',
+                      'view.block=True\n',
+                      '\n']
+        mpi_header.extend(header)
 
         for file in _get_files():
-            with self.subTest(file):
+            with open(file) as f:
 
-                with open(file) as f:
-                    if not any(x in file for x in skip_notebooks):
-                        json_data = json.load(f)
-                        for i in json_data['cells']:
-                            if 'source' in i and i['source'] is not None:
-                                i['source'] = [line.strip() for line in i['source']]
-                                if i['source'] == header:
-                                    break
-                        else:
-                            header_text = '\n'.join(header)
-                            msg = f'required header not found in notebook {file}\n' \
-                                  f'All notebooks should contain the following block before ' \
-                                  f'any other code blocks:\n' \
-                                  f'-----------------------------------------\n' \
-                                  f'{header_text}\n' \
-                                  f'-----------------------------------------\n'
-                            self.fail(msg)
+                # This one is exempt from these lint rules.
+                if 'getting_started.ipynb'  in file:
+                    continue
 
-                        if 'getting_started.ipynb' not in file:
-                            correct_tags = ['active-ipynb', 'remove-input', 'remove-output']
-                            msg = f"Missing metadata tags in header in notebook {file}. Found " \
-                                  f"headers must contain the following tags.{correct_tags}."
-                            try:
-                                first_cell = json_data['cells'][0]['metadata']['tags']
-                            except KeyError:
-                                msg = f"Missing metadata tags in header in notebook {file}. " \
-                                      f"Headers must contain the following tags: {correct_tags}."
-                                self.fail(msg)
+                json_data = json.load(f)
+                first_block = json_data['cells'][0]['source']
+                if first_block != header and first_block != mpi_header:
+                    header_text = '\n'.join(header)
+                    msg = f'required header not found in notebook {file}\n' \
+                          f'All notebooks should contain the following block before ' \
+                          f'any other code blocks:\n' \
+                          f'-----------------------------------------\n' \
+                          f'{header_text}\n' \
+                          f'-----------------------------------------\n'
+                    self.fail(msg)
 
-                            if sorted(first_cell) != sorted(correct_tags):
-                                msg = f"Incorrect header tags in notebook {file}. Found " \
-                                      f"{first_cell}, should be: {correct_tags}."
-                                self.fail(msg)
+                correct_tags = ['active-ipynb', 'remove-input', 'remove-output']
+                msg = f"Missing metadata tags in header in notebook {file}. Found " \
+                      f"headers must contain the following tags.{correct_tags}."
+                try:
+                    first_cell = json_data['cells'][0]['metadata']['tags']
+                except KeyError:
+                    msg = f"Missing metadata tags in header in notebook {file}. " \
+                          f"Headers must contain the following tags: {correct_tags}."
+                    self.fail(msg)
+
+                if sorted(first_cell) != sorted(correct_tags):
+                    msg = f"Incorrect header tags in notebook {file}. Found " \
+                          f"{sorted(first_cell)}, should be: {sorted(correct_tags)}."
+                    self.fail(msg)
 
 
 if __name__ == '__main__':
