@@ -56,7 +56,7 @@ class LintJupyterOutputsTestCase(unittest.TestCase):
         Check Jupyter Notebooks for code cell installing openmdao.
         """
         skip_notebooks = ['notebooks.ipynb', 'src_indices.ipynb', 'distributed_components.ipynb',
-                          'parallel_group.ipynb']
+                          'parallel_group.ipynb', 'adding_constraint.ipynb']
         header = ["try:",
                   "import openmdao.api as om",
                   "except ImportError:",
