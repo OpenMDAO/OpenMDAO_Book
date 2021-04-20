@@ -64,6 +64,7 @@ jobs:
 
           cd build_pyoptsparse;
           chmod 755 ./build_pyoptsparse.sh;
+          ./build_pyoptsparse.sh -b "v2.1.5";
           cd ..;
 
           export LD_LIBRARY_PATH=$HOME/ipopt/lib;
