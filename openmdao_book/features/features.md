@@ -26,3 +26,4 @@ Units Definitions here.
 
 ## Experimental Features
 ---
+- [Determining Variable Shapes at Runtime](experimental/dyn_shapes.ipynb)
