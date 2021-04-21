@@ -41,13 +41,8 @@ parse:
     # including those that are enabled by default!
     - amsmath
     - colon_fence
-    # - deflist
     - dollarmath
-    # - html_admonition
-    # - html_image
     - linkify
-    # - replacements
-    # - smartquotes
     - substitution
 
 launch_buttons:

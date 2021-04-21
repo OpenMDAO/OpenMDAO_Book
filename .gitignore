@@ -73,3 +73,7 @@ _srcdocs
 openmdao_book/*/*/*.sql
 openmdao_book/*/*.sql
 cases.sql
+
+# dat and out files
+*.dat
+*.out
