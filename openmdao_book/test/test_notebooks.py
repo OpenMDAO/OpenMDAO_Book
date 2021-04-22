@@ -51,13 +51,12 @@ class TestNotebooks(unittest.TestCase):
         this_file = pathlib.PurePath(__file__)
         book_dir = this_file.parent.parent
         notebooks = collect_filenames(book_dir)
-
         num_notebooks = len(notebooks)
 
         for i, n in enumerate(notebooks):
             nb_rel_path = pathlib.PurePath(n).relative_to(book_dir)
             print(nb_rel_path)
-            # os.chdir('/'.join(n.split('/')[:-1]))
+            os.chdir('/'.join(n.split('/')[:-1]))
             with self.subTest(nb_rel_path):
                 with open(n) as f:
                     try:
