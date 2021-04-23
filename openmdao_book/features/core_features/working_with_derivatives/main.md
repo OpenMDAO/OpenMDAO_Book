@@ -13,6 +13,7 @@
 ## Verifying Partial Derivatives are Correct
 - [Checking Partial Derivatives with Finite Difference](basic_check_partials.ipynb)
 - [Changing Check Settings for FD or CS](check_partials_settings.ipynb)
+- [Sparse Partial Derivatives](sparse_partials.ipynb)
 - [Checking Partial Derivatives on a Subset of a Model](check_partials_subset.ipynb)
 - [Visually Checking Partial Derivatives with Matrix Diagrams](partial_derivative_viz.ipynb)
 - [Unit Testing Partial Derivatives](unit_testing_partials.ipynb)
@@ -25,7 +26,10 @@
 
 ## Reducing the Cost of Total Derivative Solves Using Advanced Features
 
-There are a number of special cases where a model has a particular structure that can be exploited to reduce the cost of linear solves used to compute total derivatives. You can learn details of how to determine if your problem has the necessary structure to use one of these features, or how to restructure your problem to make use of them in the :ref:`Theory Manual entry on how OpenMDAO computes total derivatives<total_derivs_theory>`
+There are a number of special cases where a model has a particular structure that can be exploited to 
+reduce the cost of linear solves used to compute total derivatives. You can learn details of how to determine if 
+your problem has the necessary structure to use one of these features, or how to restructure your problem to 
+make use of them in the :ref:`Theory Manual entry on how OpenMDAO computes total derivatives<total_derivs_theory>`
 
 - [In-Memory Assembly of Jacobians](assembled_jacobian.ipynb)
 - [Simultaneous Total Derivative Coloring For Separable Problems](simul_derivs.ipynb)
