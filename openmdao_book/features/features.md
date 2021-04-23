@@ -30,3 +30,4 @@ Units Definitions here.
 ---
 - [Determining Variable Shapes at Runtime](experimental/dyn_shapes.ipynb)
 - [Simultaneous Coloring of Approximated Derivatives](experimental/approx_coloring.ipynb)
+- [Working with Plugins](experimental/plugins.md)
