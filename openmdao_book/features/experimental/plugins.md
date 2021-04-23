@@ -21,7 +21,7 @@ Before you can use a plugin, you have to know that it exists,  There are a coupl
     | openmdao_command          | command line tool         |
 
 
-The `openmdao find_plugins` command was created to make this process a little easier.  To use the tool, just specify the type of plugin you're looking for, or you can look for anything associated with openmdao by just specifying 'openmdao'. The allowed plugin types are any of the topic search strings shown in the table above with the *openmdao_* prefix removed, so for example, you could look for drivers using the following command:
+The [openmdao find_plugins](../../other_useful_docs/om_command.ipynb#openmdao-find_plugins) command was created to make this process a little easier.  To use the tool, just specify the type of plugin you're looking for, or you can look for anything associated with openmdao by just specifying 'openmdao'. The allowed plugin types are any of the topic search strings shown in the table above with the *openmdao_* prefix removed, so for example, you could look for drivers using the following command:
 
 ```
 openmdao find_plugins driver
@@ -54,5 +54,5 @@ Since openmdao plugins are contained in python packages, you just install the py
 ## Viewing Installed Plugins
 
 
-Once a package containing plugins has been installed in your python environment, you can list all of the registered openmdao plugins using the `openmdao list_installed` command.
+Once a package containing plugins has been installed in your python environment, you can list all of the registered openmdao plugins using the [openmdao list_installed](../../other_useful_docs/om_command.ipynb#openmdao-list_installed) command.
 
