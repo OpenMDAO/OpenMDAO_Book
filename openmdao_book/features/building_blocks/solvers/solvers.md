@@ -12,13 +12,13 @@
 ### Linear Solvers
 ---
 
-- [LinearBlockGS](blank.ipynb)
-- [LinearBlockJac](blank.ipynb)
-- [LinearRunOnce](blank.ipynb)
-- [DirectSolver](blank.ipynb)
-- [PETScKrylov](blank.ipynb)
-- [ScipyKrylov](blank.ipynb)
-- [LinearUserDefined](blank.ipynb)
+- [LinearBlockGS](linear_block_gs.ipynb)
+- [LinearBlockJac](linear_block_jac.ipynb)
+- [LinearRunOnce](linear_runonce.ipynb)
+- [DirectSolver](direct_solver.ipynb)
+- [PETScKrylov](petsc_krylov.ipynb)
+- [ScipyKrylov](scipy_iter_solver.ipynb)
+- [LinearUserDefined](linear_user_defined.ipynb)
 
 ### Linesearch/Backtracking
 ---
