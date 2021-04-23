@@ -24,7 +24,7 @@ OpenMDAO’s fully-supported features are documented here, each in a self-contai
 ## Debugging
 ---
 
-## [Units Definitions](units.ipynb)
+## [Units Definitions](units.md)
 
 ## Experimental Features
 ---
