@@ -1,10 +1,11 @@
+<!-- #region -->
+---
 # Features
 
 OpenMDAO’s fully-supported features are documented here, each in a self-contained context. Any feature documented here, with the exception of those in the Experimental Features section, has been thoroughly tested, and should be considered fully functional.
 
 
 ## Core Features
----
 - [Working with Components](core_features/working_with_components/main.md)
 - [Working with Groups](core_features/working_with_groups/main.md)
 - [Adding design variables, constraints, and objectives](core_features/adding_desvars_cons_objs/main.md)
@@ -13,10 +14,19 @@ OpenMDAO’s fully-supported features are documented here, each in a self-contai
 
 ## Building Blocks
 ---
+<!-- #endregion -->
 - [Components](building_blocks/components/components.md)
 
 ## Recording Data
 ---
+- [Solver Recording](features/recording/solver_recording.ipynb)
+- [Driver Recording](features/recording/driver_recording.ipynb)
+- [Problem Recording](features/recording/problem_recording.ipynb)
+- [System Recording](features/recording/system_recording.ipynb)
+- [Case Recorder Setting](features/recording/case_recorder.ipynb)
+- [Case Reader](features/recording/case_reader.ipynb)
+- [Getting Data from a Case](features/recording/case_reader_data.ipynb)
+- [Getting Metadata from a Recording](features/recording/recording_metadata.ipynb)
 
 ## Model Visualization
 ---
