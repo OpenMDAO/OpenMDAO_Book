@@ -23,6 +23,12 @@ OpenMDAO’s fully-supported features are documented here, each in a self-contai
 
 ## Debugging
 ---
+- [Listing Variables](debugging/listing_variables.ipynb)
+- [The Newton Solver Isn’t Converging](debugging/newton_solver_not_converging.ipynb)
+- [Driver Debug Printing](debugging/debugging_drivers.ipynb)
+- [Solver Debug Printing](debugging/debugging_solvers.ipynb)
+- [Profiling and Tracing](debugging/profiling/index.ipynb)
+- [MPI Detection, Troubleshooting, and Testing](debugging/controlling_mpi.ipynb)
 
 Units Definitions here.
 
