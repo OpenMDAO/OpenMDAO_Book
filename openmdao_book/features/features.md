@@ -1,7 +1,6 @@
 <!-- #region -->
----
 # Features
-
+---
 OpenMDAO’s fully-supported features are documented here, each in a self-contained context. Any feature documented here, with the exception of those in the Experimental Features section, has been thoroughly tested, and should be considered fully functional.
 
 
@@ -12,30 +11,29 @@ OpenMDAO’s fully-supported features are documented here, each in a self-contai
 - [Running Your Models](core_features/running_your_models/main.md)
 - [Controlling Solver Behavior](core_features/controlling_solver_behavior/main.md)
 
+
 ## Building Blocks
----
-<!-- #endregion -->
 - [Components](building_blocks/components/components.md)
 
+
 ## Recording Data
----
-- [Solver Recording](features/recording/solver_recording.ipynb)
-- [Driver Recording](features/recording/driver_recording.ipynb)
-- [Problem Recording](features/recording/problem_recording.ipynb)
-- [System Recording](features/recording/system_recording.ipynb)
-- [Case Recorder Setting](features/recording/case_recorder.ipynb)
-- [Case Reader](features/recording/case_reader.ipynb)
-- [Getting Data from a Case](features/recording/case_reader_data.ipynb)
-- [Getting Metadata from a Recording](features/recording/recording_metadata.ipynb)
+- [Solver Recording](recording/solver_recording.ipynb)
+- [Driver Recording](recording/driver_recording.ipynb)
+- [Problem Recording](recording/problem_recording.ipynb)
+- [System Recording](recording/system_recording.ipynb)
+- [Case Recording Options](recording/case_recorder_options.ipynb)
+- [Case Reader](recording/case_reader.ipynb)
+- [Getting Data from a Case](recording/case_reader_data.ipynb)
+- [Getting Metadata from a Recording](recording/recording_metadata.ipynb)
+
 
 ## Model Visualization
----
+
 
 ## Debugging
----
-
 Units Definitions here.
 
+
 ## Experimental Features
----
 - [Determining Variable Shapes at Runtime](experimental/dyn_shapes.ipynb)
+<!-- #endregion -->
