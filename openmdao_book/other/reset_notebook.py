@@ -25,10 +25,11 @@ def reset_notebook(fname):
     for cell in dct['cells']:
         if cell['cell_type'] == 'code':
             if cell['source']:  # cell is not empty
-                cell['execution_count'] = None
-                cell['outputs'] = []
+                if cell['execution_count'] is not None or len(cell['outputs'] > 0):
+                    cell['execution_count'] = None
+                    cell['outputs'] = []
+                    changed = True
                 newcells.append(cell)
-                changed = True
         else:
             newcells.append(cell)
 
