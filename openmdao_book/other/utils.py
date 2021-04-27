@@ -10,11 +10,17 @@ def reset_notebook(fname):
     ----------
     fname : str
         Name of the notebook file.
+
+    Returns
+    -------
+    bool
+        True if the file was updated.
     """
 
     with open(fname) as f:
         dct = json.load(f)
 
+    changed = False
     newcells = []
     for cell in dct['cells']:
         if cell['cell_type'] == 'code':
@@ -22,13 +28,17 @@ def reset_notebook(fname):
                 cell['execution_count'] = None
                 cell['outputs'] = []
                 newcells.append(cell)
+                changed = True
         else:
             newcells.append(cell)
 
     dct['cells'] = newcells
 
-    with open(fname, 'w') as f:
-        json.dump(dct, f, indent=1)
+    if changed:
+        with open(fname, 'w') as f:
+            json.dump(dct, f, indent=1, ensure_ascii=False)
+
+    return changed
 
 
 def reset_notebook_cmd():
@@ -48,7 +58,8 @@ def reset_notebook_cmd():
             print(f"Can't find file '{fname}'.")
             sys.exit(-1)
 
-        reset_notebook(fname)
+        if reset_notebook(fname):
+            print("Updated file", fname)
 
 
 # TODO: once OpenMDAO_Book is a python package, register a console script to call reset_notebook
