@@ -120,6 +120,6 @@ jobs:
       - name: 'Upload Book'
         uses: actions/upload-artifact@v2
         with:
-          name: openmdao_book
+          name: openmdao_book.tar.gz
           path: openmdao_book/_build/openmdao_book.tar.gz
           retention-days: 7
