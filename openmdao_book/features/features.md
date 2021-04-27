@@ -21,7 +21,7 @@ OpenMDAO’s fully-supported features are documented here, each in a self-contai
 - [Driver Recording](recording/driver_recording.ipynb)
 - [Problem Recording](recording/problem_recording.ipynb)
 - [System Recording](recording/system_recording.ipynb)
-- [Case Recording Options](recording/case_recorder_options.ipynb)
+- [Case Recording Options](recording/case_recording_options.ipynb)
 - [Case Reader](recording/case_reader.ipynb)
 - [Getting Data from a Case](recording/case_reader_data.ipynb)
 - [Getting Metadata from a Recording](recording/recording_metadata.ipynb)
