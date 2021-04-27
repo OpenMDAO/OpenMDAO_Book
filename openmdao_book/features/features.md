@@ -7,6 +7,7 @@ OpenMDAO’s fully-supported features are documented here, each in a self-contai
 ---
 - [Working with Components](core_features/working_with_components/main.md)
 - [Working with Groups](core_features/working_with_groups/main.md)
+- [Working with Derivatives](core_features/working_with_derivatives/main.md)
 - [Adding design variables, constraints, and objectives](core_features/adding_desvars_cons_objs/main.md)
 - [Running Your Models](core_features/running_your_models/main.md)
 - [Controlling Solver Behavior](core_features/controlling_solver_behavior/main.md)
@@ -15,6 +16,8 @@ OpenMDAO’s fully-supported features are documented here, each in a self-contai
 ---
 - [Components](building_blocks/components/components.md)
 - [Drivers](building_blocks/drivers/index.md)
+- [Solvers](building_blocks/solvers/solvers.md)
+- [SurrogateModels](building_blocks/surrogates/index.md)
 
 ## Recording Data
 ---
@@ -31,8 +34,10 @@ OpenMDAO’s fully-supported features are documented here, each in a self-contai
 - [Profiling and Tracing](debugging/profiling/index.ipynb)
 - [MPI Detection, Troubleshooting, and Testing](debugging/controlling_mpi.ipynb)
 
-Units Definitions here.
+## [Units Definitions](units.md)
 
 ## Experimental Features
 ---
 - [Determining Variable Shapes at Runtime](experimental/dyn_shapes.ipynb)
+- [Simultaneous Coloring of Approximated Derivatives](experimental/approx_coloring.ipynb)
+- [Working with Plugins](experimental/plugins.md)
