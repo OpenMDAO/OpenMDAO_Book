@@ -77,3 +77,6 @@ cases.sql
 # dat and out files
 *.dat
 *.out
+
+# coloring files
+coloring_files/
