@@ -112,7 +112,7 @@ jobs:
           echo "=============================================================";
           ./build_all_docs.sh
           cd openmdao_book/_build
-          zip -r ./openmdao_book.zip html/*
+          tar -czvf ./openmdao_book.tar.gz html
           echo "=============================================================";
           echo "Operations Completed.";
           echo "=============================================================";
@@ -121,5 +121,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: openmdao_book
-          path: openmdao_book/_build/openmdao_book.zip
+          path: openmdao_book/_build/openmdao_book.tar.gz
           retention-days: 7
