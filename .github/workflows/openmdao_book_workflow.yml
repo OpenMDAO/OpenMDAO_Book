@@ -6,7 +6,7 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   # Remove push when finally merging.
   push:
-    branches: [ main ]
+    branches: [ main, artifact_update]
   pull_request:
     branches: [ main ]
 
@@ -111,8 +111,10 @@ jobs:
           echo "Build the docs.";
           echo "=============================================================";
           ./build_all_docs.sh
+
+      - name: 'Build artifact zip'
           cd openmdao_book/_build
-          zip -r ./openmdao_book.zip html
+          zip -r ./openmdao_book.zip html/*
           echo "=============================================================";
           echo "Operations Completed.";
           echo "=============================================================";
