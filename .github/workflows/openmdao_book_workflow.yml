@@ -86,6 +86,7 @@ jobs:
           pip install nbconvert;
           pip install testflo;
           pip install ipyparallel;
+          pip install jupyter-book;
 
           echo "=============================================================";
           echo "List installed packages/versions";
