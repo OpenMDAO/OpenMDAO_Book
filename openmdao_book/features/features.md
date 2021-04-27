@@ -15,6 +15,7 @@ OpenMDAO’s fully-supported features are documented here, each in a self-contai
 ---
 - [Components](building_blocks/components/components.md)
 - [Solvers](building_blocks/solvers/solvers.md)
+- [SurrogateModels](building_blocks/surrogates/index.md)
 
 ## Recording Data
 ---
