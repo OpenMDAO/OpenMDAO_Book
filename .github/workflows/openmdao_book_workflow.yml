@@ -111,8 +111,6 @@ jobs:
           echo "Build the docs.";
           echo "=============================================================";
           ./build_all_docs.sh
-          cd openmdao_book/_build
-          tar -czvf ./openmdao_book.tar.gz html
           echo "=============================================================";
           echo "Operations Completed.";
           echo "=============================================================";
