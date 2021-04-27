@@ -2,7 +2,7 @@ import json
 
 def reset_notebook(fname):
     """
-    Empties out the output fields and resets the execution_count in all cells in the given notebook.
+    Empties the output fields and resets execution_count in all code cells in the given notebook.
 
     Also removes any empty code cells. The specified notebook is overwritten.
 
