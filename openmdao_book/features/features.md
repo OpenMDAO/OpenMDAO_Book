@@ -33,9 +33,10 @@ OpenMDAO’s fully-supported features are documented here, each in a self-contai
 - [Profiling and Tracing](debugging/profiling/index.ipynb)
 - [MPI Detection, Troubleshooting, and Testing](debugging/controlling_mpi.ipynb)
 
-Units Definitions here.
+## [Units Definitions](units.md)
 
 ## Experimental Features
 ---
 - [Determining Variable Shapes at Runtime](experimental/dyn_shapes.ipynb)
+- [Simultaneous Coloring of Approximated Derivatives](experimental/approx_coloring.ipynb)
 - [Working with Plugins](experimental/plugins.md)
