@@ -4,7 +4,7 @@ def reset_notebook(fname):
     """
     Empties out the output fields and resets the execution_count in all cells in the given notebook.
 
-    The specified notebook is overwritten.
+    Also removes any empty code cells. The specified notebook is overwritten.
 
     Parameters
     ----------
@@ -15,10 +15,17 @@ def reset_notebook(fname):
     with open(fname) as f:
         dct = json.load(f)
 
+    newcells = []
     for cell in dct['cells']:
         if cell['cell_type'] == 'code':
-            cell['execution_count'] = None
-            cell['outputs'] = []
+            if cell['source']:  # cell is not empty
+                cell['execution_count'] = None
+                cell['outputs'] = []
+                newcells.append(cell)
+        else:
+            newcells.append(cell)
+
+    dct['cells'] = newcells
 
     with open(fname, 'w') as f:
         json.dump(dct, f, indent=1)
