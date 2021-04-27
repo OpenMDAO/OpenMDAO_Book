@@ -32,20 +32,23 @@ def reset_notebook(fname):
 
 
 def reset_notebook_cmd():
+    """
+    Run reset_notebook on any notebook files passed in via the command line.
+    """
     import os, sys
-    if not len(sys.argv) == 2:
-        print(f"usage: python {os.path.basename(sys.argv[0])} <notebook_file>")
+    if len(sys.argv) < 2:
+        print(f"usage: python {os.path.basename(sys.argv[0])} <notebook_file(s)>")
         sys.exit(-1)
 
-    fname = sys.argv[1]
-    if os.path.splitext(fname)[-1] != '.ipynb':
-        fname += '.ipynb'
+    for fname in sys.argv[1:]:
+        if os.path.splitext(fname)[-1] != '.ipynb':
+            fname += '.ipynb'
 
-    if not os.path.isfile(fname):
-        print(f"Can't find file '{fname}'.")
-        sys.exit(-1)
+        if not os.path.isfile(fname):
+            print(f"Can't find file '{fname}'.")
+            sys.exit(-1)
 
-    reset_notebook(fname)
+        reset_notebook(fname)
 
 
 # TODO: once OpenMDAO_Book is a python package, register a console script to call reset_notebook
