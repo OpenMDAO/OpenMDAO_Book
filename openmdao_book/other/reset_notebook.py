@@ -33,6 +33,8 @@ def reset_notebook(fname):
         else:
             newcells.append(cell)
 
+    changed |= len(dct['cells']) != len(newcells)
+
     dct['cells'] = newcells
 
     if changed:
