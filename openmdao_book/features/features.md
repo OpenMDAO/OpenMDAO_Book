@@ -47,7 +47,7 @@ OpenMDAO’s fully-supported features are documented here, each in a self-contai
 - [Profiling and Tracing](debugging/profiling/index.ipynb)
 - [MPI Detection, Troubleshooting, and Testing](debugging/controlling_mpi.ipynb)
 
-## [Units Definitions](units.md)
+## [Units Definitions](units.ipynb)
 
 ## Experimental Features
 ---
