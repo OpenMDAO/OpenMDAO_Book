@@ -24,9 +24,6 @@ You can read the docs online, so it is not necessary to build them locally on yo
 But if you're going to build new features or add new examples, you'll want to build the docs locally, so that you can check them while you are writing them.
 
 - [Local Building of OpenMDAO Documentation](doc_build.ipynb)
-- [Automating Doc Build and Custom Doc Deployment from Travis CI](advanced_operations.ipynb)
-- [Caching on Travis CI](advanced_operations.ipynb)
-
 
 ## Creating Your Own OpenMDAO Plugins
 ---
