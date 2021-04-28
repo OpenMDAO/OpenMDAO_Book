@@ -6,7 +6,7 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   # Remove push when finally merging.
   push:
-    branches: [ main ]
+    branches: [ main, artifact_update2]
   pull_request:
     branches: [ main ]
 
@@ -104,6 +104,7 @@ jobs:
           pip install nbconvert;
           pip install testflo;
           pip install ipyparallel;
+          pip install jupyter-book;
 
           echo "=============================================================";
           echo "List installed packages/versions";
@@ -129,8 +130,6 @@ jobs:
           echo "Build the docs.";
           echo "=============================================================";
           ./build_all_docs.sh
-          cd openmdao_book/_build
-          zip -r ./openmdao_book.zip html
           echo "=============================================================";
           echo "Operations Completed.";
           echo "=============================================================";
@@ -139,5 +138,6 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: openmdao_book
-          path: openmdao_book/_build/openmdao_book.zip
-          retention-days: 7
+          path: openmdao_book/_build/html
+          if-no-files-found: error
+          retention-days: 2
