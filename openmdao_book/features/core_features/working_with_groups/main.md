@@ -5,6 +5,7 @@ It’s often desirable to represent a complex model as a collection of component
 - [Adding Subsystems to a Group and Promoting Variables](add_subsystem.ipynb)
 - [Connecting Variables](connect.ipynb)
 - [Using src_indices with Promoted Variables](src_indices.ipynb)
+- [Connections Involving Distributed Variables](dist_serial.md)
 - [Setting the Order of Subsystems in a Group](set_order.ipynb)
 - [Accessing Subsystems Within a Group](get_subsystem.ipynb)
 - [Parallel Groups](parallel_group.ipynb)
