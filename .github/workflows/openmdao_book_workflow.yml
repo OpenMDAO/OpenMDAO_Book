@@ -112,7 +112,6 @@ jobs:
           echo "Build the docs.";
           echo "=============================================================";
           ./build_all_docs.sh
-          ls -la openmdao_book/_build/html
           echo "=============================================================";
           echo "Operations Completed.";
           echo "=============================================================";
@@ -123,4 +122,4 @@ jobs:
           name: openmdao_book
           path: openmdao_book/_build/html
           if-no-files-found: error
-          retention-days: 7
+          retention-days: 2
