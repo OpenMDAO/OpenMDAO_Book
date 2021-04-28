@@ -80,6 +80,8 @@ jobs:
             mkdir SNOPT
             scp -qr ${{ secrets.SNOPT_LOCATION_77 }} SNOPT
             ./build_pyoptsparse.sh -b "v2.1.5" -s SNOPT/src
+          else
+            ./build_pyoptsparse.sh -b "v2.1.5"
           fi
 
           cd ..
