@@ -23,6 +23,11 @@ OpenMDAO’s fully-supported features are documented here, each in a self-contai
 
 ## Model Visualization
 ---
+- [Basics of Creating N2 Model Visualizations](model_visualization/n2_basics/n2_basics.ipynb)
+- [Details of the N2 Model Visualizations](model_visualization/n2_details/n2_details.ipynb)
+- [Metamodel Visualization](model_visualization/meta_model_basics.ipynb)
+- [View Connections of a Model](model_visualization/view_connections.ipynb)
+- [View Driver Scaling Information](model_visualization/view_scaling_report.ipynb)
 
 ## Debugging
 ---
