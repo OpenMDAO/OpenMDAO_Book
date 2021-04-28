@@ -25,7 +25,6 @@ But if you're going to build new features or add new examples, you'll want to bu
 
 - [Local Building of OpenMDAO Documentation](doc_build.ipynb)
 
-
 ## Creating Your Own OpenMDAO Plugins
 ---
 
