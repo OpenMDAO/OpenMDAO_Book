@@ -79,7 +79,7 @@ jobs:
           if [ "${{ secrets.SNOPT_LOCATION_77 }}" ]; then
             echo "  > Secure copying SNOPT 7.7 over SSH"
             mkdir SNOPT
-            scp -qr ${{ secrets.SNOPT_LOCATION_77 }} SNOPT
+            scp -vr ${{ secrets.SNOPT_LOCATION_77 }} SNOPT
             ./build_pyoptsparse.sh -b v2.1.5 -s SNOPT/src
           fi
 
