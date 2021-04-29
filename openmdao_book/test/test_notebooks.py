@@ -69,6 +69,7 @@ class TestNotebooks(unittest.TestCase):
 
                 # If SNOPT is not available during PR builds, then don't raise an error.
                 # SNOPT is only available during merge to main.
+                GITHUB_EV = os.environ.get("GITHUB_EVENT_NAME")
                 PR = GITHUB_EV and GITHUB_EV == "pull_request"
                 if not (PR and 'Optimizer SNOPT is not available' in trb):
                     self.fail(f'{nb_rel_path} failed due to exception.\n{trb}')
