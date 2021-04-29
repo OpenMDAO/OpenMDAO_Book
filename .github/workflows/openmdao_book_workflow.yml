@@ -114,6 +114,8 @@ jobs:
           export OMPI_MCA_rmaps_base_oversubscribe=1
           echo "two proc ls"
           mpiexec -np 2 ls
+          echo "four proc ls oversub flag"
+          mpiexec -np 4 --oversubscribe ls
           echo "four proc ls"
           mpiexec -np 4 ls
 
