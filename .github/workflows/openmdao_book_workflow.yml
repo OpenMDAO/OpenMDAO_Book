@@ -26,6 +26,17 @@ jobs:
         run: |
           echo -e "$(ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)\t$(hostname -f) $(hostname -s)" | sudo tee -a /etc/hosts
 
+      - name: Create SSH key
+        shell: bash
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          sudo chmod 600 ~/.ssh/id_rsa
+          echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it.
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
@@ -53,8 +64,7 @@ jobs:
           echo "=============================================================";
           echo "Install PETSc";
           echo "=============================================================";
-          conda install -c anaconda mpi4py -q -y;
-          conda install -c conda-forge petsc=3.12 petsc4py -q -y;
+          conda install -c conda-forge mpi4py petsc=3.12 petsc4py -q -y;
 
           echo "=============================================================";
           echo "Install pyoptsparse";
@@ -64,8 +74,17 @@ jobs:
 
           cd build_pyoptsparse;
           chmod 755 ./build_pyoptsparse.sh;
-          ./build_pyoptsparse.sh -b "v2.1.5";
-          cd ..;
+
+          if [ "${{ secrets.SNOPT_LOCATION_77 }}" ]; then
+            echo "  > Secure copying SNOPT 7.7 over SSH"
+            mkdir SNOPT
+            scp -qr ${{ secrets.SNOPT_LOCATION_77 }} SNOPT
+            ./build_pyoptsparse.sh -b "v2.1.5" -s SNOPT/src
+          else
+            ./build_pyoptsparse.sh -b "v2.1.5"
+          fi
+
+          cd ..
 
           export LD_LIBRARY_PATH=$HOME/ipopt/lib;
 
