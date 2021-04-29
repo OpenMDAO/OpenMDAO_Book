@@ -65,7 +65,13 @@ class TestNotebooks(unittest.TestCase):
             try:
                 ep.preprocess(nb, {'metadata': {'path': RUN_PATH}})
             except CellExecutionError as e:
-                self.fail(f'{nb_rel_path} failed due to exception.\n{e.traceback}')
+                trb = e.traceback
+
+                # If SNOPT is not available during PR builds, then don't raise an error.
+                # SNOPT is only available during merge to main.
+                PR = GITHUB_EV and GITHUB_EV == "pull_request"
+                if not (PR and 'Optimizer SNOPT is not available' in trb):
+                    self.fail(f'{nb_rel_path} failed due to exception.\n{}')
             except TimeoutError:
                 self.fail(f'Timeout executing the notebook {n}.\n')
             finally:
