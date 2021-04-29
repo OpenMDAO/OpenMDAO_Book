@@ -66,36 +66,36 @@ jobs:
           echo "=============================================================";
           conda install -c conda-forge mpi4py petsc=3.12 petsc4py -q -y;
 
-          echo "=============================================================";
-          echo "Install pyoptsparse";
-          echo "=============================================================";
+          #echo "=============================================================";
+          #echo "Install pyoptsparse";
+          #echo "=============================================================";
 
-          git clone -q https://github.com/OpenMDAO/build_pyoptsparse;
+          #git clone -q https://github.com/OpenMDAO/build_pyoptsparse;
 
-          cd build_pyoptsparse;
-          chmod 755 ./build_pyoptsparse.sh;
+          #cd build_pyoptsparse;
+          #chmod 755 ./build_pyoptsparse.sh;
 
-          if [ "${{ secrets.SNOPT_LOCATION_77 }}" ]; then
-            echo "  > Secure copying SNOPT 7.7 over SSH"
-            mkdir SNOPT
-            scp -qr ${{ secrets.SNOPT_LOCATION_77 }} SNOPT
-            ./build_pyoptsparse.sh -b "v2.1.5" -s SNOPT/src
-          else
-            ./build_pyoptsparse.sh -b "v2.1.5"
-          fi
+          #if [ "${{ secrets.SNOPT_LOCATION_77 }}" ]; then
+            #echo "  > Secure copying SNOPT 7.7 over SSH"
+            #mkdir SNOPT
+            #scp -qr ${{ secrets.SNOPT_LOCATION_77 }} SNOPT
+            #./build_pyoptsparse.sh -b "v2.1.5" -s SNOPT/src
+          #else
+            #./build_pyoptsparse.sh -b "v2.1.5"
+          #fi
 
-          cd ..
+          #cd ..
 
-          export LD_LIBRARY_PATH=$HOME/ipopt/lib;
+          #export LD_LIBRARY_PATH=$HOME/ipopt/lib;
 
-          echo "=============================================================";
-          echo "Install OpenMDAO";
-          echo "=============================================================";
-          cd ..;
-          git clone -q https://github.com/OpenMDAO/OpenMDAO;
-          cd OpenMDAO;
-          pip install .[all];
-          cd ../OpenMDAO_Book;
+          #echo "=============================================================";
+          #echo "Install OpenMDAO";
+          #echo "=============================================================";
+          #cd ..;
+          #git clone -q https://github.com/OpenMDAO/OpenMDAO;
+          #cd OpenMDAO;
+          #pip install .[all];
+          #cd ../OpenMDAO_Book;
 
           echo "=============================================================";
           echo "Install packages for Notebooks.";
@@ -111,6 +111,10 @@ jobs:
           echo "List installed packages/versions";
           echo "=============================================================";
           conda list;
+          echo "two proc ls"
+          mpiexec -np 2 ls
+          echo "four proc ls"
+          mpiexec -np 4 ls
 
           echo "=============================================================";
           echo "Final additional setup to run MPI under notebooks.";
@@ -119,7 +123,7 @@ jobs:
           ipython profile create --parallel --profile=mpi;
           echo "c.IPClusterEngines.engine_launcher_class = 'MPIEngineSetLauncher'" >> ~/.ipython/profile_mpi/ipcluster_config.py;
           echo "c.IPClusterStart.controller_launcher_class = 'MPIControllerLauncher'" >> ~/.ipython/profile_mpi/ipcluster_config.py;
-          ipcluster start -n 4 --profile=mpi --debug &
+          ipcluster start -n 4 --profile=mpi --log-to-file=True --log-level DEBUG &
           sleep 12
 
           echo "=============================================================";
