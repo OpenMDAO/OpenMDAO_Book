@@ -71,7 +71,7 @@ class TestNotebooks(unittest.TestCase):
                 # SNOPT is only available during merge to main.
                 PR = GITHUB_EV and GITHUB_EV == "pull_request"
                 if not (PR and 'Optimizer SNOPT is not available' in trb):
-                    self.fail(f'{nb_rel_path} failed due to exception.\n{}')
+                    self.fail(f'{nb_rel_path} failed due to exception.\n{trb}')
             except TimeoutError:
                 self.fail(f'Timeout executing the notebook {n}.\n')
             finally:
