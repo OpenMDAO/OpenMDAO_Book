@@ -111,6 +111,7 @@ jobs:
           echo "List installed packages/versions";
           echo "=============================================================";
           conda list;
+          export OMPI_MCA_rmaps_base_oversubscribe=1
           echo "two proc ls"
           mpiexec -np 2 ls
           echo "four proc ls"
