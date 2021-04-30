@@ -117,13 +117,20 @@ class LintJupyterOutputsTestCase(unittest.TestCase):
                     if block['cell_type'] != 'code':
                         continue
 
-                    # Don't check hidden cells
                     tags = block['metadata'].get('tags')
-                    if tags and 'remove-input' in tags and 'remove-output' in tags:
-                        continue
+                    if tags:
+
+                        # Don't check hidden cells
+                        if 'remove-input' in tags and 'remove-output' in tags:
+                            continue
+
+                        # We allow an assert in a cell if you tag it.
+                        if "allow-assert" in tags:
+                            continue
 
                     code = ''.join(block['source'])
                     if 'assert' in code:
+
                         msg = f"Assert found in a code block in {file}. "
                         self.fail(msg)
 
