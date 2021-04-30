@@ -103,6 +103,30 @@ class LintJupyterOutputsTestCase(unittest.TestCase):
                           f"{sorted(first_cell)}, should be: {sorted(correct_tags)}."
                     self.fail(msg)
 
+    def test_assert(self):
+        """
+        Make sure any code cells with asserts are hidden.
+        """
+        for file in _get_files():
+            with open(file) as f:
+                json_data = json.load(f)
+                blocks = json_data['cells']
+                for block in blocks[1:]:
+
+                    # Don't check markup cells
+                    if block['cell_type'] != 'code':
+                        continue
+
+                    # Don't check hidden cells
+                    tags = block['metadata'].get('tags')
+                    if tags and 'remove-input' in tags and 'remove-output' in tags:
+                        continue
+
+                    code = ''.join(block['source'])
+                    if 'assert' in code:
+                        msg = f"Assert found in a code block in {file}. "
+                        self.fail(msg)
+
 
 if __name__ == '__main__':
     unittest.main()
