@@ -6,7 +6,7 @@ If you need to learn the basics of how things work, please see the :ref:`User Gu
 
 - [Optimizing a Paraboloid – The TL;DR Version](tldr_paraboloid.ipynb)
 - [Optimizing an Actuator Disk Model to Find Betz Limit for Wind Turbines](betz_limit.ipynb)
-- [Hohmann Transfer Example - Optimizing a Spacecraft Manuever](hohmann_transfer.ipynb)
+- [Hohmann Transfer Example - Optimizing a Spacecraft Manuever](hohmann_transfer/hohmann_transfer.ipynb)
 - [Kepler’s Equation Example - Solving an Implicit Equation](keplers_equation.ipynb)
 - [Converging an Implicit Model: Nonlinear circuit analysis](circuit_analysis_examples.ipynb)
 - [Optimizing the Thickness Distribution of a Cantilever Beam Using the Adjoint Method](beam_optimization_example.ipynb)
