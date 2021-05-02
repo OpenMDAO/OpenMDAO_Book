@@ -5,6 +5,7 @@ techniques for using certain features in combination, or examples of solving can
 If you need to learn the basics of how things work, please see the :ref:`User Guide <UserGuide>`.
 
 - [Optimizing a Paraboloid – The TL;DR Version](tldr_paraboloid.ipynb)
+- [Optimizing a Paraboloid](paraboloid.ipynb)
 - [Optimizing an Actuator Disk Model to Find Betz Limit for Wind Turbines](betz_limit.ipynb)
 - [Hohmann Transfer Example - Optimizing a Spacecraft Manuever](hohmann_transfer/hohmann_transfer.ipynb)
 - [Kepler’s Equation Example - Solving an Implicit Equation](keplers_equation.ipynb)
