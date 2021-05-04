@@ -9,6 +9,7 @@
 - [NewtonSolver](newton.ipynb)
 - [BroydenSolver](broyden.ipynb)
 
+(linear-solvers)=
 ### Linear Solvers
 ---
 
