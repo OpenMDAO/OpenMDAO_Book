@@ -33,14 +33,13 @@ def header(filename, path):
     header = """# %s
 
 ```{eval-rst}
-    .. automodule::
-        %s
-        :members:
+    .. automodule:: %s
         :undoc-members:
         :special-members: __init__, __contains__, __iter__, __setitem__, __getitem__
         :show-inheritance:
         :inherited-members:
-
+        :noindex:
+```
 """ % (filename, path)
     return header
 
@@ -137,7 +136,7 @@ def build_src_docs(top, dir, project_name='openmdao'):
 
             # create/write a package index file: (e.g. "_srcdocs/packages/openmdao.core.md")
             package_file = open(package_filename, "w")
-            package_file.write(f"# {package_name}\n---\n\n")
+            package_file.write(f"# {package_name}\n\n")
 
             for sub_package in sub_packages:
                 SKIP_SUBPACKAGES = ['__pycache__']

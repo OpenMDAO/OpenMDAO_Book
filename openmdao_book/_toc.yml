@@ -1,12 +1,12 @@
-- file: main
-
-- part: Getting Started
+format: jb-book
+root: main
+parts:
+- caption: Getting Started
   chapters:
   - file: getting_started/getting_started
-
-- part: Basic User Guide
+- caption: Basic User Guide
   chapters:
-  - file: basic_user_guide/basic_user_guide.md
+  - file: basic_user_guide/basic_user_guide
     sections:
     - file: basic_user_guide/single_disciplinary_optimization/component_types
     - file: basic_user_guide/single_disciplinary_optimization/first_analysis
@@ -17,8 +17,7 @@
     - file: basic_user_guide/command_line/check_setup
     - file: basic_user_guide/command_line/make_n2
     - file: basic_user_guide/reading_recording/basic_recording_example
-
-- part: Advanced User Guide
+- caption: Advanced User Guide
   chapters:
   - file: advanced_user_guide/advanced_user_guide
     sections:
@@ -29,8 +28,7 @@
     - file: advanced_user_guide/analytic_derivatives/partial_derivs_explicit
     - file: advanced_user_guide/recording/advanced_case_recording
     - file: advanced_user_guide/example/euler_integration_example
-
-- part: Reference Guide
+- caption: Reference Guide
   chapters:
   - file: theory_manual/theory_manual
     sections:
@@ -43,10 +41,6 @@
     - file: theory_manual/total_derivs_theory
     - file: theory_manual/setup_linear_solvers
     - file: theory_manual/advanced_linear_solvers_special_cases/advanced_linear_solvers_special_cases
-#    - sections:
-#      - file: theory_manual/advanced_linear_solvers_special_cases/separable
-#      - file: theory_manual/advanced_linear_solvers_special_cases/fan_out
-#      - file: theory_manual/advanced_linear_solvers_special_cases/vectorized
   - file: features/features.md
     sections:
     - file: features/core_features/main.md
@@ -67,8 +61,7 @@
     - file: examples/beam_optimization_example
     - file: examples/beam_optimization_example_part_2
     - file: examples/simul_deriv_example
-
-- part: Other Useful Docs
+- caption: Other Useful Docs
   chapters:
   - file: other_useful_docs/om_command.ipynb
   - file: other/citing.ipynb
