@@ -77,6 +77,12 @@ class LintJupyterOutputsTestCase(unittest.TestCase):
                     continue
 
                 json_data = json.load(f)
+
+                code_cells = ['code' for cell in json_data['cells'] \
+                              if cell['cell_type'] == 'code']
+                if len(code_cells) < 1:
+                    continue
+
                 first_block = json_data['cells'][0]['source']
                 if first_block != header and first_block != mpi_header:
                     header_text = '\n'.join(header)
