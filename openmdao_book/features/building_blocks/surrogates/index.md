@@ -1,3 +1,5 @@
+:orphan:
+
 # SurrogateModels
 
 - [KrigingSurrogate](kriging.ipynb)

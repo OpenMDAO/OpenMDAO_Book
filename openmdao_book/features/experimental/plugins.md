@@ -1,3 +1,5 @@
+:orphan:
+
 # Working with Plugins
 
 The OpenMDAO plugin infrastructure provides a way for you to discover and use code that can extend the functionality of OpenMDAO.

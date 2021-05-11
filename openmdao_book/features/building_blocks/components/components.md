@@ -1,3 +1,5 @@
+:orphan:
+
 # Components
 - [ExecComp](exec_comp.ipynb)
 - [BalanceComp](balance_comp.ipynb)

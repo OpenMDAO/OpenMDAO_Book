@@ -1,3 +1,5 @@
+:orphan:
+
 # Drivers
 
 - [ScipyOptimizeDriver](scipy_optimize_driver.ipynb)

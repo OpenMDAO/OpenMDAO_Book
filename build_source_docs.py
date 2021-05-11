@@ -23,14 +23,15 @@ packages = [
     'visualization',
 ]
 
-index_top = """# Source Docs
----
+index_top = """:orphan:
+# Source Docs
+
 """
 
 def header(filename, path):
 
     header = """# %s
----
+
 ```{eval-rst}
     .. automodule::
         %s
@@ -39,7 +40,7 @@ def header(filename, path):
         :special-members: __init__, __contains__, __iter__, __setitem__, __getitem__
         :show-inheritance:
         :inherited-members:
-```
+
 """ % (filename, path)
     return header
 
@@ -71,7 +72,8 @@ def _header_cell():
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
    "version": "3.8.1"
-  }
+  },
+  "orphan": true
  },
  "nbformat": 4,
  "nbformat_minor": 4

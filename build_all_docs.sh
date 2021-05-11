@@ -6,5 +6,5 @@ if [ ! -d "./openmdao_book/OpenMDAO/" ]; then
     cd ..;
 fi
 python build_source_docs.py;
-python build_jupyter_book.py;
 rm -rf openmdao_book/OpenMDAO;
+python build_jupyter_book.py;
