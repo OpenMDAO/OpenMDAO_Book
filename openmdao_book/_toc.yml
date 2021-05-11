@@ -75,7 +75,8 @@ parts:
   - file: other_useful_docs/auto_ivc_api_translation
   - file: other_useful_docs/api_translation
   - file: other_useful_docs/file_wrap.ipynb
-  - file: other_useful_docs/developer_docs/developer_docs.md
+  - file: _srcdocs/index
+  - file: other_useful_docs/developer_docs/developer_docs
     sections:
     - file: other_useful_docs/developer_docs/doc_build.ipynb
     - file: other_useful_docs/developer_docs/doc_style_guide.ipynb

@@ -23,7 +23,7 @@ packages = [
     'visualization',
 ]
 
-index_top = """:orphan:
+index_top = """
 # Source Docs
 
 """
