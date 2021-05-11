@@ -41,19 +41,20 @@ parts:
     - file: theory_manual/total_derivs_theory
     - file: theory_manual/setup_linear_solvers
     - file: theory_manual/advanced_linear_solvers_special_cases/advanced_linear_solvers_special_cases
-  - file: features/features.md
+  - file: features/features
     sections:
     - file: features/core_features/main.md
-    - file: features/building_blocks/building_blocks.md
+    - file: features/building_blocks/building_blocks
     - file: features/recording/main.md
     - file: features/model_visualization/main.md
     - file: features/debugging/debugging.md
     - file: features/warning_control/warnings
     - file: features/units
     - file: features/experimental/main.md
-  - file: examples/examples.md
+  - file: examples/examples
     sections:
     - file: examples/tldr_paraboloid
+    - file: examples/paraboloid
     - file: examples/betz_limit
     - file: examples/hohmann_transfer/hohmann_transfer
     - file: examples/keplers_equation
