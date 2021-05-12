@@ -3,23 +3,22 @@ import json
 
 packages = [
     'approximation_schemes',
-    'core',
     'components',
+    'core',
     'drivers',
     'error_checking',
     'jacobians',
     'matrices',
     'proc_allocators',
     'recorders',
-    'solvers',
-    'surrogate_models',
     'solvers.linear',
-    'solvers.nonlinear',
     'solvers.linesearch',
+    'solvers.nonlinear',
+    'surrogate_models',
     'test_suite.components',
     'test_suite.scripts',
-    'vectors',
     'utils',
+    'vectors',
     'visualization',
 ]
 
