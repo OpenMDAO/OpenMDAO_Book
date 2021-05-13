@@ -145,6 +145,7 @@ jobs:
               git clone https://github.com/OpenMDAO/OpenMDAO.git;
               cd ..;
           fi
+          python z.py
           python build_source_docs.py;
           rm -rf openmdao_book/OpenMDAO;
           jupyter-book build -W --keep-going openmdao_book
