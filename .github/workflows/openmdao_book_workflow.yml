@@ -82,7 +82,9 @@ jobs:
             ./build_pyoptsparse.sh -b "v2.1.5" -s SNOPT/src
           else
              echo "This is a PR submission: disable SNOPT cells in the pyoptsparse feature doc."
-             python ../openmdao_book/other/disable_snopt_cells.py
+             cd -
+             python openmdao_book/other/disable_snopt_cells.py
+             cd -
             ./build_pyoptsparse.sh -b "v2.1.5"
           fi
 
