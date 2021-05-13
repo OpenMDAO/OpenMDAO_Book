@@ -7,5 +7,6 @@ if [ ! -d "./openmdao_book/OpenMDAO/" ]; then
 fi
 python build_source_docs.py;
 rm -rf openmdao_book/OpenMDAO;
-jupyter-book build  openmdao_book
+#jupyter-book build -W --keep-going openmdao_book
+jupyter-book build openmdao_book
 python copy_build_artifacts.py;
