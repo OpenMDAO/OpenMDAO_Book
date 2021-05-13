@@ -75,11 +75,16 @@ jobs:
           cd build_pyoptsparse;
           chmod 755 ./build_pyoptsparse.sh;
 
-          echo ${{ secrets.SNOPT_LOCATION_77 }}
-          echo "  > Secure copying SNOPT 7.7 over SSH"
-          mkdir SNOPT
-          scp -qr ${{ secrets.SNOPT_LOCATION_77 }} SNOPT
-          ./build_pyoptsparse.sh -b "v2.1.5" -s SNOPT/src
+          if [ "${{ secrets.SNOPT_LOCATION_77 }}" ]; then
+            echo "  > Secure copying SNOPT 7.7 over SSH"
+            mkdir SNOPT
+            scp -qr ${{ secrets.SNOPT_LOCATION_77 }} SNOPT
+            ./build_pyoptsparse.sh -b "v2.1.5" -s SNOPT/src
+          else
+             echo "Disable SNOPT cells in the pyoptsparse feature"
+
+            ./build_pyoptsparse.sh -b "v2.1.5"
+          fi
 
           cd ..
 
