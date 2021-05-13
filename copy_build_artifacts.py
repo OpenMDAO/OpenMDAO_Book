@@ -4,7 +4,6 @@ import pathlib
 import fnmatch
 import shutil
 
-
 def copy_build_artifacts(book_dir='openmdao_book'):
     """
     Copy build artifacts (html files, images, etc) to the output _build directory.
