@@ -158,10 +158,6 @@ jobs:
           echo "Operations Completed.";
           echo "=============================================================";
 
-      - name: Print Error Details
-        run: |
-          cat /home/runner/work/OpenMDAO_Book/OpenMDAO_Book/openmdao_book/_build/html/reports/*
-
       - name: 'Upload Book'
         uses: actions/upload-artifact@v2
         with:
@@ -169,3 +165,5 @@ jobs:
           path: openmdao_book/_build/html
           if-no-files-found: error
           retention-days: 2
+        run: |
+          cat /home/runner/work/OpenMDAO_Book/OpenMDAO_Book/openmdao_book/_build/html/reports/*
