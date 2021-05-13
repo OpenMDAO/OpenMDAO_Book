@@ -81,6 +81,10 @@ jobs:
             scp -qr ${{ secrets.SNOPT_LOCATION_77 }} SNOPT
             ./build_pyoptsparse.sh -b "v2.1.5" -s SNOPT/src
           else
+             echo "This is a PR submission: disable SNOPT cells in the pyoptsparse feature doc."
+             cd -
+             python openmdao_book/other/disable_snopt_cells.py
+             cd -
             ./build_pyoptsparse.sh -b "v2.1.5"
           fi
 
@@ -149,11 +153,8 @@ jobs:
           rm -rf openmdao_book/OpenMDAO;
           jupyter-book build -W --keep-going openmdao_book
           python copy_build_artifacts.py;
-          #. ./build_all_docs.sh
-          #cat /home/runner/work/OpenMDAO_Book/OpenMDAO_Book/openmdao_book/_build/html/reports/pyoptsparse_driver.log
 
           cd openmdao_book/_build/html
-          mkdir reports
           echo "=============================================================";
           echo "Operations Completed.";
           echo "=============================================================";
