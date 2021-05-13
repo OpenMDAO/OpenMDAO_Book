@@ -2,24 +2,6 @@ import os
 import json
 
 packages = [
-    'approximation_schemes',
-    'components',
-    'core',
-    'drivers',
-    'error_checking',
-    'jacobians',
-    'matrices',
-    'proc_allocators',
-    'recorders',
-    'solvers.linear',
-    'solvers.linesearch',
-    'solvers.nonlinear',
-    'surrogate_models',
-    'test_suite.components',
-    'test_suite.scripts',
-    'utils',
-    'vectors',
-    'visualization',
 ]
 
 index_top = """
