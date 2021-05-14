@@ -97,13 +97,6 @@ def build_src_docs(top, dir, project_name='openmdao'):
     if not os.path.isdir(packages_dir):
         os.mkdir(packages_dir)
 
-    # Note, this never triggers on my build.  Not sure what it does or why it might be
-    # needed -- Ken
-    for listing in os.listdir(os.path.join(dir)):
-        if os.path.isdir(os.path.join("..", listing)):
-            if listing not in IGNORE_LIST and listing not in packages:
-                packages.append(listing)
-
     index_filename = os.path.join(doc_dir, "index.ipynb")
     index = open(index_filename, "w")
     index_data = index_top
