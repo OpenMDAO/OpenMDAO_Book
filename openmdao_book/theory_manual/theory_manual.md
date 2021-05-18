@@ -4,7 +4,7 @@ The Theory Manual exists to explain some of the underlying concepts behind OpenM
 
 
 ## Models with Implicit Components
----
+
 - [OpenMDAO Class Structure](class_structure.ipynb)
 - [Understanding How Variables Work](implicit_transformation_of_vars.ipynb)
 - [The System Setup Stack: Understanding When to Use setup and configure](setup_stack.ipynb)
@@ -13,7 +13,7 @@ The Theory Manual exists to explain some of the underlying concepts behind OpenM
 - [Determining How Many Times a System was Executed](iter_count.ipynb)
 
 ## Total Derivatives Theory
----
+
 - [How Total Derivatives are Computed](total_derivs_theory.ipynb)
 - [Setting Up a Model for Efficient Linear Solves](setup_linear_solvers.ipynb)
 - [Advanced Linear Solver Algorithms for Special Cases](advanced_linear_solvers_special_cases/advanced_linear_solvers_special_cases.md)

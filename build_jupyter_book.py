@@ -49,7 +49,7 @@ def build_book(book_dir=BOOK_DIR, clean=True):
     os.chdir(REPO_ROOT)
     if clean:
         os.system(f'jupyter-book clean {book_dir}')
-    os.system(f'jupyter-book build {book_dir}')
+    os.system(f'jupyter-book build -W {book_dir}')
     copy_build_artifacts(book_dir)
     os.chdir(save_cwd)
 

@@ -81,6 +81,10 @@ jobs:
             scp -qr ${{ secrets.SNOPT_LOCATION_77 }} SNOPT
             ./build_pyoptsparse.sh -b "v2.1.5" -s SNOPT/src
           else
+             echo "This is a PR submission: disable SNOPT cells in the pyoptsparse feature doc."
+             cd -
+             python openmdao_book/other/disable_snopt_cells.py
+             cd -
             ./build_pyoptsparse.sh -b "v2.1.5"
           fi
 
@@ -105,7 +109,12 @@ jobs:
           pip install nbconvert;
           pip install testflo;
           pip install ipyparallel;
-          pip install jupyter-book;
+          # Temporary: Install the latest jupyter-book which isn't on pypi
+          git clone -q https://github.com/executablebooks/jupyter-book
+          cd jupyter-book
+          pip install -e .
+          cd ..
+          # pip install jupyter-book;
 
           echo "=============================================================";
           echo "List installed packages/versions";
@@ -124,17 +133,36 @@ jobs:
           sleep 12
 
           echo "=============================================================";
-          echo "Run the tests.";
+          echo "Run the lint checks.";
           echo "=============================================================";
+          cd openmdao_book/test
           testflo -n 1
+          cd ../..
 
           echo "=============================================================";
           echo "Build the docs.";
           echo "=============================================================";
-          ./build_all_docs.sh
+
+          if [ ! -d "./openmdao_book/OpenMDAO/" ]; then
+              echo "Temporarily installing OpenMDAO repo to build the source docs";
+              cd openmdao_book/;
+              git clone https://github.com/OpenMDAO/OpenMDAO.git;
+              cd ..;
+          fi
+          python build_source_docs.py;
+          rm -rf openmdao_book/OpenMDAO;
+          jupyter-book build -W --keep-going openmdao_book
+          python copy_build_artifacts.py;
+
+          cd openmdao_book/_build/html
           echo "=============================================================";
           echo "Operations Completed.";
           echo "=============================================================";
+
+      - name: Print Failure Logs
+        if: ${{ failure() }}
+        run: |
+          cat /home/runner/work/OpenMDAO_Book/OpenMDAO_Book/openmdao_book/_build/html/reports/*
 
       - name: 'Upload Book'
         uses: actions/upload-artifact@v2

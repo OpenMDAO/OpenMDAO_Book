@@ -16,7 +16,6 @@ programming, and traditional design space exploration.
 If you are using OpenMDAO, please [cite](other/citing.ipynb) us!
 
 ## User Guide
----
 
 These are a collection of tutorial problems that teach you important concepts and techniques for using OpenMDAO.
 For new users, you should work through all material in **Getting Started** and **Basic User Guide**.
@@ -32,7 +31,6 @@ They explain important secondary concepts that you will run into when working wi
 
 
 ## Reference Guide
----
 
 These docs are intended to be used by as a reference by users looking for explanation of a particular feature in detail or
 documentation of the arguments/options/settings for a specific method, Component, Driver, or Solver.
@@ -47,8 +45,8 @@ documentation of the arguments/options/settings for a specific method, Component
 - [Command Line Tools](other_useful_docs/om_command.ipynb)
 - [How to Cite OpenMDAO](other/citing.ipynb)
 - [Building a Tool on Top of OpenMDAO](other_useful_docs/building_a_tool/building_a_tool.md)
-- [Upgrading from OpenMDAO 2.10 to OpenMDAO 3](other_useful_docs/api_translation.ipynb)
 - [Conversion Guide for the Auto-IVC (IndepVarComp) Feature](other_useful_docs/auto_ivc_api_translation.ipynb)
+- [Upgrading from OpenMDAO 2.10 to OpenMDAO 3](other_useful_docs/api_translation.ipynb)
 - [File Wrapping](other_useful_docs/file_wrap.ipynb)
 - [Source Docs](_srcdocs/index.md)
 - [Developer Docs (if you’re going to contribute code)](other_useful_docs/developer_docs/developer_docs.md)

@@ -1,47 +1,49 @@
 import os
 import json
 
+IGNORE_LIST = []
+
 packages = [
     'approximation_schemes',
-    'core',
     'components',
+    'core',
     'drivers',
     'error_checking',
     'jacobians',
     'matrices',
     'proc_allocators',
     'recorders',
-    'solvers',
-    'surrogate_models',
     'solvers.linear',
-    'solvers.nonlinear',
     'solvers.linesearch',
+    'solvers.nonlinear',
+    'surrogate_models',
     'test_suite.components',
     'test_suite.scripts',
-    'vectors',
     'utils',
+    'vectors',
     'visualization',
 ]
 
-index_top = """# Source Docs
----
+index_top = """
+# Source Docs
+
 """
 
 def header(filename, path):
 
     header = """# %s
----
+
 ```{eval-rst}
-    .. automodule::
-        %s
-        :members:
+    .. automodule:: %s
         :undoc-members:
         :special-members: __init__, __contains__, __iter__, __setitem__, __getitem__
         :show-inheritance:
         :inherited-members:
+        :noindex:
 ```
 """ % (filename, path)
     return header
+
 
 def _header_cell():
     template = """{
@@ -71,12 +73,14 @@ def _header_cell():
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
    "version": "3.8.1"
-  }
+  },
+  "orphan": true
  },
  "nbformat": 4,
  "nbformat_minor": 4
 }"""
     return template
+
 
 def build_src_docs(top, dir, project_name='openmdao'):
     # docs_dir = os.path.dirname(dir)
@@ -93,20 +97,15 @@ def build_src_docs(top, dir, project_name='openmdao'):
     if not os.path.isdir(packages_dir):
         os.mkdir(packages_dir)
 
-    for listing in os.listdir(os.path.join(dir)):
-        if os.path.isdir(os.path.join("..", listing)):
-            if listing not in IGNORE_LIST and listing not in packages:
-                packages.append(listing)
-
-    index_filename = os.path.join(doc_dir, "index.md")
+    index_filename = os.path.join(doc_dir, "index.ipynb")
     index = open(index_filename, "w")
-    index.write(index_top)
+    index_data = index_top
 
     for package in packages:
         # a package is e.g. openmdao.core, that contains source files
         # a sub_package, is a src file, e.g. openmdao.core.component
         sub_packages = []
-        package_filename = os.path.join(packages_dir, package + ".md")
+        package_filename = os.path.join(packages_dir, package + ".ipynb")
         package_name = project_name + "." + package
 
         # the sub_listing is going into each package dir and listing what's in it
@@ -127,27 +126,26 @@ def build_src_docs(top, dir, project_name='openmdao'):
             # stuff in the file to have fwd slashes.
             title = f"[{package}]"
             link = f"(packages/{package}.md)\n"
-            index.write(f"- {title}{link}")
+            index_data += f"- {title}{link}"
 
             # make subpkg directory (e.g. _srcdocs/packages/core) for ref sheets
             package_dir = os.path.join(packages_dir, package)
             os.mkdir(package_dir)
 
-            # create/write a package index file: (e.g. "_srcdocs/packages/openmdao.core.md")
+            # create/write a package index file: (e.g. "_srcdocs/packages/openmdao.core.ipynb")
             package_file = open(package_filename, "w")
-            package_file.write(f"# {package_name}\n---\n\n")
+            package_data = f"# {package_name}\n\n"
 
             for sub_package in sub_packages:
                 SKIP_SUBPACKAGES = ['__pycache__']
                 # this line writes subpackage name e.g. "core/component.py"
-                # into the corresponding package index file (e.g. "openmdao.core.md")
+                # into the corresponding package index file (e.g. "openmdao.core.ipynb")
                 if sub_package not in SKIP_SUBPACKAGES:
                     # specifically don't use os.path.join here.  Even windows wants the
                     # stuff in the file to have fwd slashes.
                     title = f"[{sub_package}]"
                     link = f"({package}/{sub_package}.md)\n"
-                    package_file.write(f"- {title}{link}")
-                    # package_file.write("    " + package + "/" + sub_package + "\n")
+                    package_data += f"- {title}{link}"
 
                     # creates and writes out one reference sheet (e.g. core/component.ipynb)
                     ref_sheet_filename = os.path.join(package_dir, sub_package + ".ipynb")
@@ -168,9 +166,25 @@ def build_src_docs(top, dir, project_name='openmdao'):
                         f.truncate()
 
             # finish and close each package file
+            package_file.write(_header_cell())
+            package_file.close()
+            with open(package_filename, 'r+') as f:
+                data = json.load(f)
+                data['cells'][0]['source'] = package_data
+                f.seek(0)
+                json.dump(data, f, indent=4)
+                f.truncate()
             package_file.close()
 
     # finish and close top-level index file
+    index.write(_header_cell())
+    index.close()
+    with open(index_filename, 'r+') as f:
+        data = json.load(f)
+        data['cells'][0]['source'] = index_data
+        f.seek(0)
+        json.dump(data, f, indent=4)
+        f.truncate()
     index.close()
 
 if __name__ == '__main__':
